@@ -3,46 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AQQARAOS | Jus Rimpang Premium</title>
-  <meta name="description" content="AQQARAOS adalah minuman herbal alami berbasis rempah Nusantara dengan varian Jus Rimpang, Lemon Grass, dan Lemon Madu." />
+  <title>AQQARAOS | Premium Herbal Drink</title>
+  <meta name="description" content="AQQARAOS adalah minuman herbal premium berbasis rempah Nusantara dengan varian Jus Rimpang, Lemon Grass, dan Lemon Madu." />
   <link rel="icon" type="image/jpeg" href="./logo-aqqaraos.jpeg" />
-  <meta property="og:title" content="AQQARAOS | Kesegaran Alami, Rasa Premium" />
-  <meta property="og:description" content="Minuman herbal alami dari rempah Nusantara. Jus Rimpang, Lemon Grass, dan Lemon Madu." />
+  <meta property="og:title" content="AQQARAOS | Kebaikan Alam dalam Setiap Tegukan" />
+  <meta property="og:description" content="Minuman herbal premium berbasis rempah Nusantara. Jus Rimpang, Lemon Grass, dan Lemon Madu." />
   <meta property="og:image" content="./logo-aqqaraos.jpeg" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="./logo-aqqaraos.jpeg" />
 
   <style>
     :root {
-      --green-950: #071f10;
-      --green-900: #0e351d;
-      --green-800: #16552c;
-      --green-700: #22753d;
-      --gold-500: #d9a33b;
-      --gold-300: #ffe7a8;
-      --orange-500: #f08a24;
-      --cream-50: #fffdf8;
-      --cream-100: #fff6e7;
-      --cream-200: #f5e7cf;
-      --brown-900: #251306;
-      --brown-700: #6b3b16;
-      --text: #24170f;
-      --muted: #6d5f52;
+      --green-900: #073b22;
+      --green-800: #0b572f;
+      --green-700: #168047;
+      --green-600: #20a45b;
+      --green-soft: #eaf7ef;
+      --lime-soft: #f2fbeb;
+      --cream: #fff9ef;
+      --yellow: #f6c64e;
+      --orange: #f47a22;
+      --brown: #5b3516;
+      --text: #1c241d;
+      --muted: #647267;
+      --line: #e5eddf;
       --white: #ffffff;
-      --shadow: 0 18px 48px rgba(45, 27, 8, 0.11);
-      --shadow-lg: 0 28px 80px rgba(23, 16, 8, 0.16);
-      --shadow-green: 0 28px 86px rgba(7, 31, 16, 0.26);
-      --radius-xl: 36px;
-      --radius-lg: 26px;
-      --radius-md: 18px;
-      --container: min(1180px, 92vw);
+      --shadow: 0 16px 38px rgba(14, 63, 35, 0.10);
+      --shadow-lg: 0 26px 70px rgba(14, 63, 35, 0.16);
+      --container: min(1200px, 92vw);
+      --radius: 28px;
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
       scroll-behavior: smooth;
     }
 
@@ -50,65 +45,40 @@
       font-family: Inter, "Segoe UI", Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 10% 0%, rgba(255, 231, 168, 0.42), transparent 27%),
-        radial-gradient(circle at 90% 10%, rgba(34, 117, 61, 0.14), transparent 28%),
-        linear-gradient(180deg, #fffdf8 0%, #fff7ea 38%, #f5ead6 100%);
+        radial-gradient(circle at 10% 2%, rgba(246, 198, 78, 0.18), transparent 24%),
+        radial-gradient(circle at 88% 8%, rgba(32, 164, 91, 0.14), transparent 24%),
+        linear-gradient(180deg, #ffffff 0%, #f8fff8 40%, #fff9ef 100%);
       overflow-x: hidden;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.16;
-      background-image:
-        linear-gradient(rgba(107, 59, 22, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(107, 59, 22, 0.06) 1px, transparent 1px);
-      background-size: 42px 42px;
-      z-index: -1;
-    }
+    a { color: inherit; text-decoration: none; }
+    img, video { display: block; max-width: 100%; }
+    .container { width: var(--container); margin-inline: auto; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img,
-    video {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: var(--container);
-      margin-inline: auto;
-    }
-
-    .topbar {
-      background: linear-gradient(90deg, var(--green-950), var(--green-800));
-      color: rgba(255, 255, 255, 0.9);
+    .announcement {
+      background: var(--green-900);
+      color: rgba(255,255,255,.92);
       font-size: 14px;
       font-weight: 800;
     }
 
-    .topbar .container {
+    .announcement .container {
       min-height: 42px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
-      padding-block: 9px;
+      padding-block: 8px;
     }
 
-    .topbar strong,
-    .topbar a {
-      color: var(--gold-300);
+    .announcement a,
+    .announcement strong {
+      color: #fff0b5;
       font-weight: 950;
     }
 
-    .topbar-links {
+    .announce-links {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
@@ -118,14 +88,14 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 999;
-      background: rgba(255, 247, 232, 0.88);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(107, 59, 22, 0.12);
+      z-index: 1000;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
     }
 
     .navbar {
-      min-height: 84px;
+      min-height: 86px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -135,57 +105,54 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 13px;
       min-width: max-content;
     }
 
     .brand-logo {
-      width: 60px;
-      height: 60px;
+      width: 58px;
+      height: 58px;
       border-radius: 50%;
       overflow: hidden;
-      background: #5b2f10;
-      border: 1px solid rgba(255, 231, 168, 0.48);
-      box-shadow: 0 14px 34px rgba(43, 26, 8, 0.25);
-      display: grid;
-      place-items: center;
+      border: 1px solid rgba(7,59,34,.14);
+      box-shadow: var(--shadow);
+      background: var(--brown);
     }
 
     .brand-logo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 50%;
     }
 
     .brand-text strong {
       display: block;
-      font-size: 21px;
+      color: var(--green-900);
+      font-size: 22px;
       line-height: 1;
       letter-spacing: 1.2px;
-      color: var(--brown-900);
     }
 
     .brand-text span {
       display: block;
       margin-top: 5px;
+      color: var(--orange);
       font-size: 12px;
-      color: var(--green-800);
       font-weight: 950;
-      letter-spacing: 1.4px;
+      letter-spacing: 1.2px;
     }
 
     nav ul {
       list-style: none;
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 22px;
     }
 
     nav a {
+      color: #243326;
       font-size: 14px;
       font-weight: 850;
-      color: #3e2a1a;
       position: relative;
     }
 
@@ -193,26 +160,25 @@
       content: "";
       position: absolute;
       left: 0;
-      bottom: -8px;
+      bottom: -9px;
       width: 0;
       height: 2px;
       border-radius: 999px;
-      background: var(--gold-500);
-      transition: 0.25s ease;
+      background: var(--green-700);
+      transition: .25s ease;
     }
 
-    nav a:hover::after {
-      width: 100%;
-    }
+    nav a:hover::after { width: 100%; }
 
     .nav-actions,
     .hero-actions,
     .product-actions,
     .cta-actions,
-    .footer-links {
+    .footer-links,
+    .social-row {
       display: flex;
-      gap: 11px;
       align-items: center;
+      gap: 11px;
       flex-wrap: wrap;
     }
 
@@ -221,44 +187,42 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 14px 20px;
-      border-radius: 999px;
       border: 0;
-      cursor: pointer;
+      border-radius: 999px;
+      padding: 14px 20px;
       font-size: 14px;
-      font-weight: 950;
       line-height: 1;
+      font-weight: 950;
+      cursor: pointer;
+      transition: .25s ease;
       white-space: nowrap;
-      transition: 0.25s ease;
     }
 
-    .btn:hover {
-      transform: translateY(-3px);
-    }
+    .btn:hover { transform: translateY(-3px); }
 
-    .btn-primary {
+    .btn-green {
+      background: linear-gradient(135deg, var(--green-700), var(--green-900));
       color: white;
-      background: linear-gradient(135deg, var(--green-700), var(--green-950));
-      box-shadow: 0 14px 34px rgba(14, 53, 29, 0.25);
+      box-shadow: 0 14px 30px rgba(7,59,34,.20);
+    }
+
+    .btn-light {
+      background: white;
+      color: var(--green-900);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 26px rgba(7,59,34,.08);
     }
 
     .btn-shopee {
-      color: white;
       background: linear-gradient(135deg, #ff7a1a, #ee4d2d);
-      box-shadow: 0 14px 34px rgba(238, 77, 45, 0.25);
+      color: white;
+      box-shadow: 0 14px 30px rgba(238,77,45,.22);
     }
 
     .btn-instagram {
-      color: white;
       background: linear-gradient(135deg, #833ab4, #fd1d1d 52%, #fcb045);
-      box-shadow: 0 14px 34px rgba(253, 29, 29, 0.20);
-    }
-
-    .btn-outline {
-      color: var(--green-900);
-      background: rgba(255, 255, 255, 0.82);
-      border: 1px solid rgba(34, 117, 61, 0.18);
-      box-shadow: 0 12px 28px rgba(45, 27, 8, 0.08);
+      color: white;
+      box-shadow: 0 14px 30px rgba(253,29,29,.18);
     }
 
     .menu-toggle {
@@ -266,9 +230,9 @@
       width: 44px;
       height: 44px;
       border-radius: 14px;
-      border: 1px solid rgba(107, 59, 22, 0.16);
+      border: 1px solid var(--line);
       background: white;
-      color: var(--brown-900);
+      color: var(--green-900);
       font-size: 27px;
       font-weight: 950;
       cursor: pointer;
@@ -276,215 +240,115 @@
 
     .hero {
       position: relative;
-      padding: 78px 0 82px;
+      padding: 40px 0 60px;
       overflow: hidden;
     }
 
-    .hero::after {
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 44px;
+      min-height: 620px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: center;
+      gap: 36px;
+      padding: 54px;
+      background:
+        linear-gradient(90deg, rgba(7,59,34,.94) 0%, rgba(7,59,34,.80) 44%, rgba(7,59,34,.22) 100%),
+        url("./lemon-grass.png") center center / cover no-repeat;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-shell::before {
       content: "";
       position: absolute;
-      left: 50%;
-      top: 42px;
-      width: min(1120px, 92vw);
-      height: 78%;
-      transform: translateX(-50%);
-      border-radius: 60px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.18));
-      border: 1px solid rgba(107, 59, 22, 0.10);
-      box-shadow: 0 35px 100px rgba(45, 27, 8, 0.10);
+      inset: 0;
       pointer-events: none;
-      z-index: 0;
+      background:
+        radial-gradient(circle at 16% 20%, rgba(246,198,78,.18), transparent 25%),
+        radial-gradient(circle at 90% 70%, rgba(255,255,255,.22), transparent 25%);
     }
 
-    .hero-grid {
+    .hero-copy,
+    .hero-visual {
       position: relative;
       z-index: 1;
-      display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      gap: 48px;
-      align-items: center;
     }
 
-    .eyebrow,
-    .section-kicker,
-    .product-label,
-    .event-badge {
+    .badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       width: fit-content;
-      padding: 9px 15px;
       border-radius: 999px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,.12);
+      color: #fff3ba;
+      border: 1px solid rgba(255,255,255,.20);
       font-size: 12px;
       font-weight: 950;
-      letter-spacing: 0.2px;
-    }
-
-    .eyebrow,
-    .section-kicker,
-    .product-label {
-      background: rgba(34, 117, 61, 0.10);
-      border: 1px solid rgba(34, 117, 61, 0.14);
-      color: var(--green-900);
-    }
-
-    .eyebrow {
-      margin-bottom: 20px;
-    }
-
-    h1,
-    .section-head h2,
-    .video-copy h2,
-    .store-card h2,
-    .cta-panel h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--brown-900);
+      letter-spacing: .3px;
+      margin-bottom: 18px;
     }
 
     h1 {
-      font-size: clamp(44px, 6vw, 78px);
-      line-height: 0.98;
-      letter-spacing: -2px;
+      font-family: Georgia, "Times New Roman", serif;
+      color: white;
+      font-size: clamp(48px, 6.6vw, 92px);
+      line-height: .94;
+      letter-spacing: -2.2px;
       margin-bottom: 22px;
     }
 
-    h1 span {
-      color: var(--green-800);
-      position: relative;
-    }
+    h1 span { color: #fff0b5; }
 
-    h1 span::after {
-      content: "";
-      position: absolute;
-      left: 2px;
-      right: 2px;
-      bottom: 5px;
-      height: 12px;
-      border-radius: 999px;
-      background: rgba(255, 231, 168, 0.56);
-      z-index: -1;
-    }
-
-    .hero p {
-      max-width: 660px;
-      color: var(--muted);
+    .hero-copy p {
+      max-width: 620px;
+      color: rgba(255,255,255,.82);
       font-size: 18px;
-      line-height: 1.8;
+      line-height: 1.78;
       margin-bottom: 26px;
     }
 
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 26px;
-      max-width: 720px;
-    }
-
-    .stat-card {
-      background: rgba(255, 255, 255, 0.82);
-      border: 1px solid rgba(107, 59, 22, 0.08);
-      border-radius: 22px;
-      padding: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .stat-card strong {
-      display: block;
-      color: var(--green-900);
-      font-size: 24px;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .stat-card span {
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 750;
-      line-height: 1.45;
-    }
-
     .hero-visual {
-      border-radius: 38px;
-      padding: 18px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(245, 231, 207, 0.78));
-      border: 1px solid rgba(107, 59, 22, 0.10);
-      box-shadow: var(--shadow-lg);
+      justify-self: stretch;
     }
 
-    .split-products {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .split-card,
-    .product-card,
-    .gallery-main,
-    .gallery-side,
-    .card,
-    .ingredient-card,
-    .audience-card,
-    .testimonial,
-    .usage-card {
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(107, 59, 22, 0.08);
-      box-shadow: var(--shadow);
-      transition: 0.25s ease;
-    }
-
-    .split-card:hover,
-    .product-card:hover,
-    .gallery-main:hover,
-    .gallery-side:hover,
-    .card:hover,
-    .ingredient-card:hover,
-    .audience-card:hover,
-    .testimonial:hover,
-    .usage-card:hover {
-      transform: translateY(-6px);
-    }
-
-    .split-card {
+    .feature-card {
       overflow: hidden;
-      border-radius: 28px;
+      border-radius: 34px;
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 24px 70px rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.36);
     }
 
-    .split-card img {
+    .feature-card img {
       width: 100%;
-      height: 310px;
+      height: 470px;
       object-fit: cover;
-      object-position: center;
     }
 
-    .split-info {
-      padding: 17px;
-      background: linear-gradient(180deg, #ffffff, #fbf1df);
+    .feature-caption {
+      padding: 22px 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
-    .split-info span {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(34, 117, 61, 0.10);
+    .feature-caption strong {
+      display: block;
+      font-size: 25px;
       color: var(--green-900);
-      font-size: 11px;
-      font-weight: 950;
-      margin-bottom: 8px;
+      margin-bottom: 5px;
     }
 
-    .split-info h3 {
-      color: var(--brown-900);
-      font-size: 22px;
-      margin-bottom: 8px;
-      margin-top: 2px;
-    }
-
-    .split-info p {
+    .feature-caption span {
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.6;
-      margin: 0;
+      font-size: 14px;
+      font-weight: 760;
     }
 
     .section {
@@ -498,14 +362,39 @@
     }
 
     .section-kicker {
-      margin-bottom: 15px;
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 10px 16px;
+      background: var(--green-soft);
+      color: var(--green-900);
+      border: 1px solid #d8eadc;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .2px;
+      margin-bottom: 14px;
     }
 
-    .section-head h2 {
-      font-size: clamp(34px, 4.5vw, 56px);
-      line-height: 1.08;
+    .section-head h2,
+    .store-card h2,
+    .cta-panel h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 4.6vw, 60px);
+      line-height: 1.06;
+      color: var(--green-900);
       letter-spacing: -1.2px;
-      margin-bottom: 15px;
+      margin-bottom: 14px;
+    }
+
+    #produk .section-head h2,
+    #komposisi .section-head h2,
+    #event .section-head h2,
+    #galeri .section-head h2,
+    #testimoni .section-head h2,
+    .usage-section .section-head h2 {
+      margin-bottom: 0;
     }
 
     .section-head p {
@@ -514,8 +403,220 @@
       line-height: 1.78;
     }
 
-    .trust-grid,
-    .product-grid,
+    .quick-categories {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .category-card {
+      border-radius: 28px;
+      background: white;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      text-align: center;
+      transition: .25s ease;
+    }
+
+    .category-card:hover { transform: translateY(-6px); }
+
+    .category-icon {
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      margin: 0 auto 14px;
+      display: grid;
+      place-items: center;
+      color: var(--green-900);
+      background: var(--lime-soft);
+      font-size: 30px;
+    }
+
+    .category-card h3 {
+      font-size: 18px;
+      color: var(--green-900);
+      margin-bottom: 8px;
+    }
+
+    .category-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+      font-weight: 720;
+    }
+
+    .promo-band {
+      position: relative;
+      overflow: hidden;
+      border-radius: 38px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.97), rgba(255,255,255,.86)),
+        url("./lemon-madu.png") right center / contain no-repeat;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      min-height: 420px;
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .promo-band img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .promo-copy h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--green-900);
+      font-size: clamp(34px, 4.4vw, 58px);
+      line-height: 1.05;
+      margin-bottom: 22px;
+      max-width: 720px;
+    }
+
+    .promo-copy p {
+      color: var(--muted);
+      line-height: 1.76;
+      font-size: 16px;
+      margin-bottom: 22px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .product-card {
+      overflow: hidden;
+      border-radius: 30px;
+      background: white;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      transition: .25s ease;
+    }
+
+    .product-card:hover { transform: translateY(-7px); }
+
+    .product-card img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+    }
+
+    .product-body {
+      padding: 24px;
+    }
+
+    .product-label {
+      display: inline-flex;
+      width: fit-content;
+      border-radius: 999px;
+      padding: 8px 12px;
+      margin-bottom: 12px;
+      background: var(--green-soft);
+      color: var(--green-900);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .product-body h3 {
+      font-size: 28px;
+      color: var(--green-900);
+      margin-bottom: 9px;
+    }
+
+    .product-body p {
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: #fff0c8;
+      color: #6e4210;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .split-section {
+      background: #f5fbf4;
+      border-block: 1px solid var(--line);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .story-photo {
+      position: relative;
+      overflow: hidden;
+      border-radius: 38px;
+      min-height: 520px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .story-photo img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+    }
+
+    .story-copy {
+      background: white;
+      border-radius: 34px;
+      padding: 36px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .story-copy h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--green-900);
+      font-size: clamp(34px, 4vw, 54px);
+      line-height: 1.08;
+      margin-bottom: 16px;
+    }
+
+    .story-copy p {
+      color: var(--muted);
+      line-height: 1.82;
+      font-size: 16px;
+      margin-bottom: 22px;
+    }
+
+    .story-points {
+      display: grid;
+      gap: 12px;
+    }
+
+    .story-points div {
+      border-radius: 18px;
+      padding: 14px 16px;
+      background: var(--green-soft);
+      color: var(--green-900);
+      font-weight: 850;
+    }
+
     .ingredient-grid,
     .audience-grid,
     .event-grid,
@@ -526,162 +627,54 @@
       gap: 20px;
     }
 
-    .trust-grid { grid-template-columns: repeat(4, 1fr); }
-    .product-grid { grid-template-columns: repeat(3, 1fr); }
     .ingredient-grid { grid-template-columns: repeat(6, 1fr); }
     .audience-grid { grid-template-columns: repeat(4, 1fr); }
     .event-grid { grid-template-columns: repeat(4, 1fr); }
     .testimonial-grid { grid-template-columns: repeat(4, 1fr); }
     .usage-grid { grid-template-columns: repeat(3, 1fr); }
-    .gallery-grid { grid-template-columns: 1.3fr 0.85fr 0.85fr; }
+    .gallery-grid { grid-template-columns: 1.2fr .9fr .9fr; }
 
-    .card {
-      border-radius: 26px;
-      padding: 24px;
+    .ingredient-card,
+    .audience-card,
+    .event-card,
+    .testimonial,
+    .usage-card,
+    .gallery-card {
+      background: white;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+      transition: .25s ease;
     }
 
-    .icon-box {
-      width: 58px;
-      height: 58px;
-      border-radius: 20px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--green-700), var(--green-950));
-      color: var(--gold-300);
-      font-size: 25px;
-      margin-bottom: 16px;
-      box-shadow: 0 12px 28px rgba(14, 53, 29, 0.18);
-    }
-
-    .card h3,
-    .usage-card h3 {
-      color: var(--green-950);
-      font-size: 21px;
-      margin-bottom: 10px;
-    }
-
-    .card p,
-    .usage-card p,
-    .product-body p,
-    .testimonial p {
-      color: var(--muted);
-      line-height: 1.72;
-      font-size: 15px;
-    }
-
-    .gallery-main,
-    .gallery-side {
-      position: relative;
-      border-radius: 30px;
-      overflow: hidden;
-    }
-
-    .gallery-main img {
-      width: 100%;
-      height: 550px;
-      object-fit: cover;
-    }
-
-    .gallery-side img {
-      width: 100%;
-      height: 265px;
-      object-fit: cover;
-    }
-
-    .gallery-column {
-      display: grid;
-      gap: 20px;
-    }
-
-    .gallery-caption {
-      position: absolute;
-      left: 16px;
-      right: 16px;
-      bottom: 16px;
-      padding: 15px 17px;
-      border-radius: 20px;
-      background: rgba(7, 31, 16, 0.76);
-      backdrop-filter: blur(10px);
-      color: white;
-      border: 1px solid rgba(255, 231, 168, 0.20);
-    }
-
-    .gallery-caption strong {
-      display: block;
-      color: var(--gold-300);
-      margin-bottom: 6px;
-      font-size: 18px;
-    }
-
-    .gallery-caption span {
-      color: rgba(255, 255, 255, 0.82);
-      line-height: 1.5;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .product-card {
-      overflow: hidden;
-      border-radius: 30px;
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 350px;
-      object-fit: cover;
-    }
-
-    .product-body {
-      padding: 25px;
-    }
-
-    .product-label {
-      margin-bottom: 11px;
-    }
-
-    .product-body h3 {
-      color: var(--brown-900);
-      font-size: 27px;
-      margin-bottom: 10px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 18px 0 20px;
-    }
-
-    .tag {
-      display: inline-flex;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--gold-300);
-      color: #69420d;
-      font-size: 12px;
-      font-weight: 850;
+    .ingredient-card:hover,
+    .audience-card:hover,
+    .event-card:hover,
+    .testimonial:hover,
+    .usage-card:hover,
+    .gallery-card:hover {
+      transform: translateY(-6px);
     }
 
     .ingredient-card {
-      border-radius: 24px;
-      padding: 18px;
       text-align: center;
+      padding: 20px;
     }
 
     .ingredient-emoji {
       width: 64px;
       height: 64px;
       border-radius: 20px;
-      margin: 0 auto 12px;
       display: grid;
       place-items: center;
+      margin: 0 auto 12px;
+      background: var(--lime-soft);
       font-size: 28px;
-      background: linear-gradient(135deg, #fff3cb, #edc56b);
     }
 
     .ingredient-card h3 {
-      color: var(--brown-900);
       font-size: 18px;
+      color: var(--green-900);
       margin-bottom: 8px;
     }
 
@@ -689,13 +682,12 @@
       color: var(--muted);
       font-size: 13px;
       line-height: 1.58;
-      font-weight: 730;
+      font-weight: 740;
     }
 
     .audience-card {
       position: relative;
       overflow: hidden;
-      border-radius: 28px;
       padding: 25px;
     }
 
@@ -704,25 +696,25 @@
       position: absolute;
       top: 10px;
       right: 16px;
+      color: rgba(22,128,71,.07);
       font-size: 78px;
-      font-weight: 950;
       line-height: 1;
-      color: rgba(34, 117, 61, 0.07);
+      font-weight: 950;
     }
 
     .audience-card h3 {
       color: var(--green-900);
       font-size: 22px;
-      margin-bottom: 7px;
+      margin-bottom: 8px;
       position: relative;
       z-index: 1;
     }
 
     .audience-card strong {
       display: block;
-      color: var(--brown-700);
+      color: var(--brown);
       font-size: 14px;
-      margin-bottom: 15px;
+      margin-bottom: 16px;
       position: relative;
       z-index: 1;
     }
@@ -737,22 +729,22 @@
 
     .audience-card li {
       display: flex;
-      gap: 10px;
       align-items: flex-start;
+      gap: 10px;
       color: var(--muted);
       font-size: 14px;
       line-height: 1.55;
-      font-weight: 720;
+      font-weight: 730;
     }
 
     .audience-card li::before {
       content: "✓";
       min-width: 22px;
       height: 22px;
-      border-radius: 50%;
       display: grid;
       place-items: center;
-      background: rgba(34, 117, 61, 0.11);
+      border-radius: 50%;
+      background: var(--green-soft);
       color: var(--green-900);
       font-size: 12px;
       font-weight: 950;
@@ -763,144 +755,192 @@
       margin-top: 24px;
       padding: 18px 20px;
       border-radius: 24px;
-      background: rgba(34, 117, 61, 0.07);
-      border: 1px solid rgba(34, 117, 61, 0.12);
+      background: var(--green-soft);
+      border: 1px solid #d8eadc;
       color: var(--muted);
       line-height: 1.7;
       font-size: 14px;
-      font-weight: 730;
+      font-weight: 740;
       text-align: center;
+    }
+
+    .gallery-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 260px;
+    }
+
+    .gallery-card.big { min-height: 560px; }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      object-fit: cover;
+      transition: .45s ease;
+    }
+
+    .gallery-card:hover img { transform: scale(1.035); }
+
+    .gallery-caption {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      border-radius: 20px;
+      padding: 16px 18px;
+      background: rgba(7,59,34,.76);
+      border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(10px);
+      color: white;
+    }
+
+    .gallery-caption strong {
+      display: block;
+      color: #fff0b5;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .gallery-caption span {
+      color: rgba(255,255,255,.82);
+      font-size: 13px;
+      line-height: 1.5;
+      font-weight: 740;
+    }
+
+    .stack {
+      display: grid;
+      gap: 20px;
     }
 
     .event-section {
       background:
-        radial-gradient(circle at top left, rgba(255, 231, 168, 0.13), transparent 24%),
-        linear-gradient(135deg, #071f10, #184c2b 62%, #5a3416);
+        linear-gradient(135deg, rgba(7,59,34,.94), rgba(11,87,47,.84)),
+        url("./jus-rimpang.png") center center / cover no-repeat;
       color: white;
     }
 
-    .event-section .section-head h2,
     .event-section .section-kicker {
-      color: white;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.20);
+      color: #fff0b5;
     }
 
-    .event-section .section-kicker,
-    .event-badge {
-      background: rgba(255, 255, 255, 0.09);
-      border: 1px solid rgba(255, 231, 168, 0.18);
-      color: var(--gold-300);
+    .event-section .section-head h2 {
+      color: white;
     }
 
     .event-section .section-head p {
-      color: rgba(255, 255, 255, 0.78);
+      color: rgba(255,255,255,.78);
     }
 
     .event-card {
-      min-height: 245px;
+      min-height: 230px;
       padding: 24px;
-      border-radius: 28px;
-      background: rgba(255, 255, 255, 0.10);
-      border: 1px solid rgba(255, 231, 168, 0.14);
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+      background: rgba(255,255,255,.11);
+      border: 1px solid rgba(255,255,255,.18);
       backdrop-filter: blur(10px);
-      transition: 0.25s ease;
     }
 
-    .event-card:hover {
-      transform: translateY(-6px);
+    .event-badge {
+      display: inline-flex;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      color: #fff0b5;
+      font-size: 12px;
+      font-weight: 950;
+      margin-bottom: 14px;
     }
 
     .event-card h3 {
       color: white;
       font-size: 24px;
-      margin: 12px 0 10px;
+      margin-bottom: 10px;
     }
 
     .event-card p {
-      color: rgba(255, 255, 255, 0.80);
+      color: rgba(255,255,255,.78);
       font-size: 14px;
-      line-height: 1.7;
-      margin-bottom: 16px;
+      line-height: 1.72;
+      font-weight: 700;
     }
 
-    .event-meta {
-      display: none;
-    }
-
-    .video-wrap {
-      display: grid;
-      grid-template-columns: 1fr 0.85fr;
-      gap: 28px;
-      align-items: center;
+    .promo-full {
+      display: block;
       border-radius: 38px;
-      padding: 30px;
+      padding: 28px;
       background:
-        radial-gradient(circle at 15% 20%, rgba(255, 231, 168, 0.24), transparent 30%),
-        linear-gradient(135deg, #071f10, #15522d 65%, #3f2412);
-      color: white;
-      box-shadow: var(--shadow-green);
+        linear-gradient(135deg, rgba(7,59,34,.90), rgba(11,87,47,.76)),
+        url("./lemon-grass.png") center center / cover no-repeat;
+      box-shadow: var(--shadow-lg);
       overflow: hidden;
     }
 
-    .video-box {
-      min-height: 430px;
-      border-radius: 28px;
+    .promo-full-video {
       overflow: hidden;
-      background: #06180d;
-      border: 1px solid rgba(255, 231, 168, 0.18);
-    }
-
-    .video-box video {
-      width: 100%;
-      height: 430px;
-      object-fit: cover;
-    }
-
-    .video-copy h2 {
-      color: white;
-      font-size: clamp(34px, 4vw, 48px);
-      line-height: 1.12;
-      margin: 14px 0;
-    }
-
-    .video-copy p {
-      color: rgba(255, 255, 255, 0.82);
-      line-height: 1.8;
-      font-size: 16px;
-      margin-bottom: 18px;
-    }
-
-    .video-points {
-      display: grid;
-      gap: 10px;
+      border-radius: 30px;
+      background: #04130a;
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 24px 60px rgba(0,0,0,.22);
       margin-bottom: 22px;
     }
 
-    .video-points div {
-      border-radius: 16px;
-      padding: 12px 14px;
-      background: rgba(255, 255, 255, 0.09);
-      border: 1px solid rgba(255, 255, 255, 0.10);
-      color: rgba(255, 255, 255, 0.88);
-      font-size: 14px;
-      font-weight: 760;
+    .promo-full-video video {
+      width: 100%;
+      height: min(680px, 70vh);
+      min-height: 430px;
+      object-fit: cover;
     }
 
-    .testimonial {
+    .promo-order-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding: 18px 20px;
       border-radius: 26px;
-      padding: 24px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(10px);
+      color: white;
+    }
+
+    .promo-order-bar strong {
+      display: block;
+      color: #fff0b5;
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .promo-order-bar span {
+      display: block;
+      color: rgba(255,255,255,.82);
+      font-size: 14px;
+      line-height: 1.5;
+      font-weight: 740;
     }
 
     .stars {
-      color: #e3a826;
+      color: #e6aa25;
       letter-spacing: 2px;
       font-size: 18px;
       margin-bottom: 12px;
     }
 
+    .testimonial {
+      padding: 24px;
+    }
+
     .testimonial p {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 15px;
       margin-bottom: 18px;
-      font-weight: 720;
+      font-weight: 730;
     }
 
     .person {
@@ -912,17 +952,17 @@
     .avatar {
       width: 44px;
       height: 44px;
-      border-radius: 50%;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, var(--gold-500), var(--green-700));
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), var(--green-700));
       color: white;
       font-weight: 950;
     }
 
     .person strong {
       display: block;
-      color: var(--green-950);
+      color: var(--green-900);
       font-size: 15px;
     }
 
@@ -930,36 +970,34 @@
       display: block;
       color: var(--muted);
       font-size: 13px;
-      font-weight: 720;
       margin-top: 2px;
+      font-weight: 720;
     }
 
     .store-card {
       display: grid;
-      grid-template-columns: 1fr 0.85fr;
-      gap: 30px;
+      grid-template-columns: 1fr .9fr;
       align-items: center;
+      gap: 32px;
       border-radius: 38px;
-      padding: 36px;
+      padding: 38px;
       background:
-        radial-gradient(circle at 18% 22%, rgba(255, 231, 168, 0.36), transparent 30%),
-        linear-gradient(135deg, #fff8ea, #ffffff 45%, #fff1c9);
-      border: 1px solid rgba(107, 59, 22, 0.10);
+        linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,249,239,.86)),
+        url("./lemon-madu.png") right center / contain no-repeat;
+      border: 1px solid var(--line);
       box-shadow: var(--shadow-lg);
       overflow: hidden;
     }
 
     .store-card h2 {
-      font-size: clamp(34px, 4vw, 48px);
-      line-height: 1.12;
-      margin: 14px 0;
+      margin-bottom: 16px;
     }
 
     .store-card p {
       color: var(--muted);
       line-height: 1.78;
       font-size: 16px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .store-points {
@@ -975,26 +1013,37 @@
     }
 
     .store-visual {
-      min-height: 320px;
-      border-radius: 30px;
+      min-height: 360px;
+      border-radius: 34px;
       display: grid;
       place-items: center;
-      color: white;
       text-align: center;
-      padding: 22px;
+      color: white;
+      padding: 24px;
       background:
-        radial-gradient(circle at 25% 20%, rgba(255, 255, 255, 0.38), transparent 27%),
+        radial-gradient(circle at 25% 20%, rgba(255,255,255,.38), transparent 27%),
         linear-gradient(135deg, #ff9d4d, #ee4d2d 60%, #7d260f);
-      box-shadow: 0 22px 60px rgba(238, 77, 45, 0.22);
+      box-shadow: 0 24px 68px rgba(238,77,45,.22);
     }
 
     .store-box {
-      max-width: 280px;
-      padding: 28px;
-      border-radius: 26px;
-      background: rgba(255, 255, 255, 0.13);
-      border: 1px solid rgba(255, 255, 255, 0.20);
+      max-width: 310px;
+      border-radius: 28px;
+      padding: 30px;
+      background: rgba(255,255,255,.13);
+      border: 1px solid rgba(255,255,255,.22);
       backdrop-filter: blur(10px);
+    }
+
+    .store-logo-img {
+      width: 156px;
+      height: 156px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 16px;
+      border: 2px solid rgba(255,255,255,.55);
+      box-shadow: 0 18px 45px rgba(0,0,0,.22);
+      background: var(--brown);
     }
 
     .store-box strong {
@@ -1004,59 +1053,57 @@
     }
 
     .store-box span {
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(255,255,255,.90);
       font-size: 15px;
       font-weight: 800;
-    }
-
-    .store-logo-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 16px;
-      border: 2px solid rgba(255, 231, 168, 0.55);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
-      background: #5b2f10;
+      line-height: 1.5;
     }
 
     .usage-card {
-      border-radius: 26px;
       padding: 26px;
       text-align: center;
     }
 
-    .usage-card .icon-box {
-      margin: 0 auto 15px;
+    .usage-card .category-icon {
+      margin-bottom: 14px;
+    }
+
+    .usage-card h3 {
+      color: var(--green-900);
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .usage-card p {
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 15px;
     }
 
     .cta {
-      padding: 74px 0 92px;
+      padding: 78px 0 94px;
     }
 
     .cta-panel {
-      border-radius: 42px;
-      padding: 58px 30px;
-      color: white;
       text-align: center;
+      border-radius: 42px;
+      padding: 64px 30px;
       background:
-        radial-gradient(circle at 18% 25%, rgba(255, 231, 168, 0.32), transparent 30%),
-        linear-gradient(135deg, var(--green-950), var(--green-800) 58%, var(--brown-700));
-      box-shadow: var(--shadow-green);
-      overflow: hidden;
+        linear-gradient(135deg, rgba(7,59,34,.92), rgba(11,87,47,.76)),
+        url("./lemon-madu.png") center center / cover no-repeat;
+      box-shadow: var(--shadow-lg);
+      color: white;
     }
 
     .cta-panel h2 {
       color: white;
-      font-size: clamp(36px, 4.6vw, 60px);
-      line-height: 1.08;
       margin-bottom: 16px;
     }
 
     .cta-panel p {
-      max-width: 780px;
-      margin: 0 auto 26px;
-      color: rgba(255, 255, 255, 0.82);
+      max-width: 790px;
+      margin: 0 auto 28px;
+      color: rgba(255,255,255,.82);
       font-size: 17px;
       line-height: 1.8;
     }
@@ -1066,9 +1113,9 @@
     }
 
     footer {
-      padding: 44px 0;
-      background: #071f10;
-      color: rgba(255, 255, 255, 0.78);
+      background: var(--green-900);
+      color: rgba(255,255,255,.78);
+      padding: 46px 0;
     }
 
     .footer-grid {
@@ -1078,16 +1125,29 @@
       align-items: center;
     }
 
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-brand img {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,.30);
+    }
+
     .footer-grid strong {
       display: block;
       color: white;
       font-size: 22px;
-      margin-bottom: 8px;
-      letter-spacing: 0.7px;
+      margin-bottom: 7px;
     }
 
     .footer-grid p {
-      max-width: 720px;
+      max-width: 700px;
       line-height: 1.7;
     }
 
@@ -1107,14 +1167,14 @@
     .floating-buttons a {
       width: 58px;
       height: 58px;
-      border-radius: 50%;
       display: grid;
       place-items: center;
+      border-radius: 50%;
       color: white;
-      font-size: 21px;
       font-weight: 950;
+      font-size: 20px;
       box-shadow: var(--shadow-lg);
-      transition: 0.25s ease;
+      transition: .25s ease;
     }
 
     .floating-buttons a:hover {
@@ -1125,123 +1185,83 @@
     .float-shop { background: #ee4d2d; }
     .float-ig { background: linear-gradient(135deg, #833ab4, #fd1d1d 55%, #fcb045); }
 
-    .promo-full {
-      display: block;
-      padding: 28px;
-      border-radius: 42px;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(255, 231, 168, 0.22), transparent 30%),
-        linear-gradient(135deg, #071f10, #15522d 62%, #3f2412);
-      color: white;
-      box-shadow: var(--shadow-green);
-      overflow: hidden;
-    }
-
-    .promo-full-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 22px;
-      flex-wrap: wrap;
-      margin-bottom: 22px;
-    }
-
-    .promo-full-head h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      color: white;
-      font-size: clamp(34px, 4.6vw, 58px);
-      line-height: 1.08;
-      letter-spacing: -1px;
-    }
-
-    .promo-full-head p {
-      max-width: 430px;
-      color: rgba(255, 255, 255, 0.82);
-      line-height: 1.7;
-      font-size: 16px;
-      font-weight: 700;
-    }
-
-    .promo-full-video {
-      position: relative;
-      overflow: hidden;
-      border-radius: 32px;
-      background: #06180d;
-      border: 1px solid rgba(255, 231, 168, 0.20);
-      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.24);
-      margin-bottom: 22px;
-    }
-
-    .promo-full-video video {
-      width: 100%;
-      height: min(680px, 70vh);
-      min-height: 420px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .promo-order-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      padding: 18px 20px;
-      border-radius: 26px;
-      background: rgba(255, 255, 255, 0.10);
-      border: 1px solid rgba(255, 231, 168, 0.16);
-      backdrop-filter: blur(10px);
-    }
-
-    .promo-order-bar strong {
-      display: block;
-      color: var(--gold-300);
-      font-size: 20px;
-      margin-bottom: 5px;
-    }
-
-    .promo-order-bar span {
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 14px;
-      font-weight: 720;
-      line-height: 1.5;
-    }
-
     @media (max-width: 1120px) {
-      .hero-grid,
-      .video-wrap,
+      .hero-shell,
+      .promo-band,
+      .story-grid,
       .store-card {
         grid-template-columns: 1fr;
       }
 
-      .trust-grid,
-      .audience-grid,
-      .event-grid,
-      .testimonial-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .ingredient-grid {
+      .quick-categories {
         grid-template-columns: repeat(3, 1fr);
       }
 
-      .gallery-grid {
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .ingredient-grid { grid-template-columns: repeat(3, 1fr); }
+      .audience-grid,
+      .event-grid,
+      .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: 1fr; }
+
+      .gallery-card.big { min-height: 460px; }
+    }
+
+    @media (max-width: 940px) {
+      .menu-toggle {
+        display: grid;
+        place-items: center;
+      }
+
+      nav {
+        position: absolute;
+        top: 86px;
+        left: 0;
+        right: 0;
+        display: none;
+        padding: 20px 22px 26px;
+        background: rgba(255,255,255,.98);
+        border-bottom: 1px solid var(--line);
+      }
+
+      nav.active { display: block; }
+
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-actions .btn-shopee { display: none; }
+
+      .announcement .container {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .quick-categories,
+      .product-grid,
+      .ingredient-grid,
+      .audience-grid,
+      .event-grid,
+      .testimonial-grid,
+      .usage-grid {
         grid-template-columns: 1fr;
       }
 
-      .gallery-main img {
-        height: 440px;
-      }
-    }
-
-    @media (max-width: 920px) {
-      .promo-full {
-        padding: 18px;
-        border-radius: 30px;
+      .hero-shell {
+        padding: 28px;
       }
 
-      .promo-full-video {
-        border-radius: 24px;
+      .feature-card img,
+      .product-card img,
+      .promo-band img,
+      .story-photo,
+      .story-photo img {
+        height: 380px;
+        min-height: 380px;
       }
 
       .promo-full-video video {
@@ -1257,65 +1277,13 @@
         width: 100%;
       }
 
-      .menu-toggle {
-        display: grid;
-        place-items: center;
-      }
-
-      nav {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 84px;
-        display: none;
-        padding: 18px 20px 24px;
-        background: rgba(255, 247, 232, 0.98);
-        border-bottom: 1px solid rgba(107, 59, 22, 0.10);
-      }
-
-      nav.active {
-        display: block;
-      }
-
-      nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-actions .btn-shopee {
-        display: none;
-      }
-
-      .topbar .container {
-        justify-content: center;
-        text-align: center;
-      }
-
-      .hero-stats,
-      .trust-grid,
-      .product-grid,
-      .ingredient-grid,
-      .audience-grid,
-      .event-grid,
-      .testimonial-grid,
-      .usage-grid,
-      .split-products {
-        grid-template-columns: 1fr;
-      }
-
-      .split-card img {
-        height: 330px;
-      }
-
-      .video-box,
-      .video-box video {
-        min-height: 360px;
-        height: 360px;
-      }
-
       .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
+      }
+
+      .footer-brand {
+        justify-content: center;
       }
 
       .footer-links {
@@ -1325,7 +1293,7 @@
 
     @media (max-width: 560px) {
       .navbar {
-        min-height: 76px;
+        min-height: 78px;
       }
 
       .brand-logo {
@@ -1333,20 +1301,24 @@
         height: 50px;
       }
 
-      .brand-text strong {
-        font-size: 18px;
-      }
+      .brand-text strong { font-size: 18px; }
+      .brand-text span { font-size: 10px; }
 
-      .brand-text span {
-        font-size: 10px;
+      .section {
+        padding: 66px 0;
       }
 
       .hero {
-        padding: 50px 0 62px;
+        padding-top: 24px;
       }
 
-      .section {
-        padding: 64px 0;
+      .hero-shell,
+      .promo-band,
+      .story-copy,
+      .promo-full,
+      .store-card {
+        padding: 18px;
+        border-radius: 28px;
       }
 
       .hero-actions,
@@ -1358,34 +1330,31 @@
         align-items: stretch;
       }
 
-      .btn {
-        width: 100%;
+      .btn { width: 100%; }
+
+      .feature-card img,
+      .product-card img,
+      .promo-band img,
+      .gallery-card,
+      .gallery-card.big,
+      .story-photo,
+      .story-photo img {
+        height: 320px;
+        min-height: 320px;
       }
 
-      .hero-visual,
-      .video-wrap,
-      .store-card {
-        padding: 16px;
-        border-radius: 28px;
-      }
-
-      .split-card img,
-      .product-card img {
-        height: 300px;
-      }
-
-      .gallery-main img,
-      .gallery-side img {
-        height: 330px;
+      .store-visual {
+        min-height: 300px;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="topbar">
+  <div class="announcement">
     <div class="container">
-      <div><strong>Open Order Ready</strong> — Menemani kesegaran Anda setiap hari</div>
-      <div class="topbar-links">
+      <div><strong>Open Order Ready</strong> — Minuman herbal premium untuk kesegaran harian.</div>
+      <div class="announce-links">
         <a href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Shopee: Aqqa_raos</a>
         <a href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Instagram: @aqqaraos_official</a>
       </div>
@@ -1395,13 +1364,8 @@
   <header>
     <div class="container navbar">
       <a href="#home" class="brand" aria-label="AQQARAOS Home">
-        <div class="brand-logo">
-          <img src="./logo-aqqaraos.jpeg" alt="Logo AQQARAOS" />
-        </div>
-        <div class="brand-text">
-          <strong>AQQARAOS</strong>
-          <span>JUS RIMPANG</span>
-        </div>
+        <div class="brand-logo"><img src="./logo-aqqaraos.jpeg" alt="Logo AQQARAOS"></div>
+        <div class="brand-text"><strong>AQQARAOS</strong><span>PREMIUM HERBAL DRINK</span></div>
       </a>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">☰</button>
@@ -1409,162 +1373,79 @@
       <nav id="navMenu">
         <ul>
           <li><a href="#home">Home</a></li>
-          <li><a href="#galeri">Galeri</a></li>
-          <li><a href="#produk">Produk</a></li>
-          <li><a href="#komposisi">Komposisi</a></li>
-          <li><a href="#manfaat">Manfaat</a></li>
-          <li><a href="#event">Event</a></li>
+          <li><a href="#produk">Shop All</a></li>
+          <li><a href="#wellness">Wellness</a></li>
+          <li><a href="#cerita">Our Roots</a></li>
+          <li><a href="#galeri">Gallery</a></li>
+          <li><a href="#event">Campaign</a></li>
           <li><a href="#video">Video</a></li>
-          <li><a href="#testimoni">Testimoni</a></li>
-          <li><a href="#store">Shopee</a></li>
-          <li><a href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#store">Store</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
         <a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Shopee</a>
-        <a class="btn btn-primary" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order%20produk." target="_blank" rel="noopener">Order</a>
+        <a class="btn btn-green" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order%20produk." target="_blank" rel="noopener">Order</a>
       </div>
     </div>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">🌿 Minuman Herbal Alami dari Rempah Nusantara</div>
-          <h1>Kesegaran Alami, Rasa <span>Premium</span>.</h1>
-          <p>
-            AQQARAOS menghadirkan minuman siap minum dengan karakter rimpang yang segar, hangat, dan mudah dinikmati. Tersedia dalam tiga varian utama: <strong>Jus Rimpang</strong>, <strong>Lemon Grass</strong>, dan <strong>Lemon Madu</strong>.
-          </p>
+      <div class="container">
+        <div class="hero-shell">
+          <div class="hero-copy">
+            <div class="badge">🌿 Fresh Daily Herbal Drink</div>
+            <h1>Kebaikan Alam dalam Setiap <span>Tegukan</span>.</h1>
+            <p>AQQARAOS hadir sebagai minuman herbal modern berbasis rempah Nusantara. Dibuat untuk menemani aktivitas harian dengan rasa yang segar, natural, dan premium.</p>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20tanya%20produk." target="_blank" rel="noopener">Tanya via WhatsApp</a>
-            <a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Belanja di Shopee</a>
-            <a class="btn btn-instagram" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Lihat Instagram</a>
-            <a class="btn btn-outline" href="#produk">Lihat Varian Produk</a>
+            <div class="hero-actions">
+              <a class="btn btn-green" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20tanya%20produk." target="_blank" rel="noopener">Order via WhatsApp</a>
+              <a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Belanja di Shopee</a>
+              <a class="btn btn-instagram" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Instagram</a>
+            </div>
           </div>
 
-          <div class="hero-stats">
-            <div class="stat-card">
-              <strong>3</strong>
-              <span>Varian utama: Jus Rimpang, Lemon Grass, dan Lemon Madu.</span>
-            </div>
-            <div class="stat-card">
-              <strong>100%</strong>
-              <span>Positioning bahan alami pilihan dengan tampilan premium.</span>
-            </div>
-            <div class="stat-card">
-              <strong>Fresh</strong>
-              <span>Campaign kesegaran harian untuk keluarga, event, dan promosi.</span>
-            </div>
+          <div class="hero-visual">
+            <article class="feature-card">
+              <img src="./jus-rimpang.png" alt="AQQARAOS Jus Rimpang">
+              <div class="feature-caption">
+                <div><strong>Jus Rimpang</strong><span>Signature herbal drink dengan karakter rempah Nusantara.</span></div>
+                <a class="btn btn-green" href="#produk">View Products</a>
+              </div>
+            </article>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="hero-visual">
-          <div class="split-products">
-            <article class="split-card">
-              <img src="./jus-rimpang.png" alt="AQQARAOS Jus Rimpang" />
-              <div class="split-info">
-                <h3>Jus Rimpang</h3>
-                <p>Varian khas dengan karakter rempah yang lebih kuat, hangat, dan natural.</p>
-              </div>
-            </article>
+    <section class="section" id="wellness">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Find Your Wellness Solution</div>
+          <h2>Minuman segar untuk berbagai momen.</h2>
+          <p>Pilih varian sesuai kebutuhan rasa dan suasana: rempah hangat, aroma serai yang fresh, atau lemon madu yang ringan.</p>
+        </div>
 
-            <article class="split-card">
-              <img src="./lemon-grass.png" alt="AQQARAOS Lemon Grass" />
-              <div class="split-info">
-                <h3>Lemon Grass</h3>
-                <p>Nuansa serai yang segar dan ringan, cocok untuk tampilan fresh premium.</p>
-              </div>
-            </article>
-
-            <article class="split-card">
-              <img src="./lemon-madu.png" alt="AQQARAOS Lemon Madu" />
-              <div class="split-info">
-                <h3>Lemon Madu</h3>
-                <p>Perpaduan lemon dan madu dengan rasa cerah, lembut, dan menyegarkan.</p>
-              </div>
-            </article>
-          </div>
+        <div class="quick-categories">
+          <article class="category-card"><div class="category-icon">🌿</div><h3>Daily Fresh</h3><p>Untuk menemani rutinitas harian.</p></article>
+          <article class="category-card"><div class="category-icon">🫚</div><h3>Herbal Roots</h3><p>Karakter rempah natural dan hangat.</p></article>
+          <article class="category-card"><div class="category-icon">🍋</div><h3>Light & Fresh</h3><p>Rasa lemon yang mudah dinikmati.</p></article>
+          <article class="category-card"><div class="category-icon">👨‍👩‍👧‍👦</div><h3>Family Drink</h3><p>Cocok untuk pilihan keluarga.</p></article>
+          <article class="category-card"><div class="category-icon">🎁</div><h3>Gift & Event</h3><p>Untuk arisan, hampers, dan acara.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="container trust-grid">
-        <article class="card">
-          <div class="icon-box">🌱</div>
-          <h3>100% Bahan Alami</h3>
-          <p>Terinspirasi dari bahan rempah pilihan yang dekat dengan tradisi sehat keluarga Indonesia.</p>
-        </article>
-        <article class="card">
-          <div class="icon-box">🧪</div>
-          <h3>Tanpa Pengawet</h3>
-          <p>Dikembangkan sebagai minuman siap konsumsi dengan positioning alami, bersih, dan higienis.</p>
-        </article>
-        <article class="card">
-          <div class="icon-box">🥤</div>
-          <h3>Praktis & Menyegarkan</h3>
-          <p>Cocok diminum saat aktivitas harian, acara keluarga, arisan, kantor, maupun hampers.</p>
-        </article>
-        <article class="card">
-          <div class="icon-box">👨‍👩‍👧‍👦</div>
-          <h3>Untuk Semua Kalangan</h3>
-          <p>Rasa dapat disesuaikan agar lebih ringan, segar, dan nyaman dinikmati berbagai usia.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="galeri">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-kicker">📸 Galeri Produk</div>
-          <h2>Visual produk AQQARAOS yang lebih profesional.</h2>
-          <p>Seluruh tampilan website menggunakan acuan gambar produk terlampir agar brand terlihat lebih kuat, premium, dan konsisten.</p>
-        </div>
-
-        <div class="gallery-grid">
-          <article class="gallery-main">
-            <img src="./jus-rimpang.png" alt="AQQARAOS Jus Rimpang" />
-            <div class="gallery-caption">
-              <strong>Jus Rimpang</strong>
-              <span>Signature product dengan karakter rempah yang kuat dan elegan.</span>
-            </div>
-          </article>
-
-          <div class="gallery-column">
-            <article class="gallery-side">
-              <img src="./lemon-grass.png" alt="AQQARAOS Lemon Grass" />
-              <div class="gallery-caption">
-                <strong>Lemon Grass</strong>
-                <span>Fresh aromatic drink dengan nuansa serai yang ringan.</span>
-              </div>
-            </article>
-            <article class="gallery-side">
-              <img src="./lemon-madu.png" alt="AQQARAOS Lemon Madu" />
-              <div class="gallery-caption">
-                <strong>Lemon Madu</strong>
-                <span>Varian segar dengan sentuhan lemon dan madu.</span>
-              </div>
-            </article>
-          </div>
-
-          <div class="gallery-column">
-            <article class="gallery-side">
-              <img src="./logo-aqqaraos.jpeg" alt="Logo AQQARAOS" />
-              <div class="gallery-caption">
-                <strong>Logo AQQARAOS</strong>
-                <span>Identitas brand utama untuk thumbnail, favicon, dan navbar.</span>
-              </div>
-            </article>
-            <article class="gallery-side">
-              <img src="./lemon-madu.png" alt="Natural Premium Drink AQQARAOS" />
-              <div class="gallery-caption">
-                <strong>Natural Premium Drink</strong>
-                <span>Kebaikan alami dari rempah Nusantara.</span>
-              </div>
-            </article>
+      <div class="container promo-band">
+        <img src="./lemon-madu.png" alt="AQQARAOS Lemon Madu">
+        <div class="promo-copy">
+          <div class="section-kicker">New Fresh Look</div>
+          <h2>Minuman herbal modern dengan visual premium.</h2>
+          <div class="hero-actions">
+            <a class="btn btn-green" href="#produk">Lihat Varian</a>
+            <a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Belanja di Shopee</a>
           </div>
         </div>
       </div>
@@ -1573,69 +1454,59 @@
     <section class="section" id="produk">
       <div class="container">
         <div class="section-head">
-          <div class="section-kicker">🥂 Varian Produk</div>
+          <div class="section-kicker">Shop All</div>
           <h2>Tiga varian unggulan AQQARAOS.</h2>
-          <p>Tanpa mencantumkan harga dan tanpa informasi ukuran ml, agar tampilan lebih elegan, fleksibel, dan profesional untuk promosi digital.</p>
         </div>
 
         <div class="product-grid">
           <article class="product-card">
-            <img src="./jus-rimpang.png" alt="AQQARAOS Jus Rimpang" />
+            <img src="./jus-rimpang.png" alt="AQQARAOS Jus Rimpang">
             <div class="product-body">
-              <span class="product-label">Varian Signature</span>
+              <span class="product-label">Signature Herbal</span>
               <h3>Jus Rimpang</h3>
               <p>Varian signature dengan karakter rimpang yang hangat, segar, dan cocok untuk konsumsi harian.</p>
-              <div class="tags">
-                <span class="tag">Jahe</span>
-                <span class="tag">Kunyit</span>
-                <span class="tag">Serai</span>
-                <span class="tag">Kayu Manis</span>
-                <span class="tag">Madu</span>
-              </div>
-              <div class="product-actions">
-                <a class="btn btn-primary" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order%20Jus%20Rimpang." target="_blank" rel="noopener">Order via WhatsApp</a>
-                <a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Belanja di Shopee</a>
-              </div>
+              <div class="tags"><span class="tag">Jahe</span><span class="tag">Kunyit</span><span class="tag">Serai</span><span class="tag">Kayu Manis</span><span class="tag">Madu</span></div>
+              <div class="product-actions"><a class="btn btn-green" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order%20Jus%20Rimpang." target="_blank" rel="noopener">Order WhatsApp</a><a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Shopee</a></div>
             </div>
           </article>
 
           <article class="product-card">
-            <img src="./lemon-grass.png" alt="AQQARAOS Lemon Grass" />
+            <img src="./lemon-grass.png" alt="AQQARAOS Lemon Grass">
             <div class="product-body">
               <span class="product-label">Fresh Aromatic</span>
               <h3>Lemon Grass</h3>
               <p>Rasa serai yang lebih ringan dan aromatic, cocok untuk penyuka minuman herbal dengan sensasi fresh.</p>
-              <div class="tags">
-                <span class="tag">Serai</span>
-                <span class="tag">Fresh Aroma</span>
-                <span class="tag">Ringan</span>
-                <span class="tag">Siap Minum</span>
-              </div>
-              <div class="product-actions">
-                <a class="btn btn-primary" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order%20Lemon%20Grass." target="_blank" rel="noopener">Order via WhatsApp</a>
-                <a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Belanja di Shopee</a>
-              </div>
+              <div class="tags"><span class="tag">Serai</span><span class="tag">Fresh Aroma</span><span class="tag">Ringan</span><span class="tag">Siap Minum</span></div>
+              <div class="product-actions"><a class="btn btn-green" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order%20Lemon%20Grass." target="_blank" rel="noopener">Order WhatsApp</a><a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Shopee</a></div>
             </div>
           </article>
 
           <article class="product-card">
-            <img src="./lemon-madu.png" alt="AQQARAOS Lemon Madu" />
+            <img src="./lemon-madu.png" alt="AQQARAOS Lemon Madu">
             <div class="product-body">
               <span class="product-label">Bright & Refreshing</span>
               <h3>Lemon Madu</h3>
               <p>Perpaduan lemon dan madu untuk rasa yang lebih cerah, segar, dan mudah diterima berbagai kalangan.</p>
-              <div class="tags">
-                <span class="tag">Lemon</span>
-                <span class="tag">Madu</span>
-                <span class="tag">Segar</span>
-                <span class="tag">Keluarga</span>
-              </div>
-              <div class="product-actions">
-                <a class="btn btn-primary" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order%20Lemon%20Madu." target="_blank" rel="noopener">Order via WhatsApp</a>
-                <a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Belanja di Shopee</a>
-              </div>
+              <div class="tags"><span class="tag">Lemon</span><span class="tag">Madu</span><span class="tag">Segar</span><span class="tag">Keluarga</span></div>
+              <div class="product-actions"><a class="btn btn-green" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order%20Lemon%20Madu." target="_blank" rel="noopener">Order WhatsApp</a><a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Shopee</a></div>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section split-section" id="cerita">
+      <div class="container story-grid">
+        <div class="story-photo"><img src="./jus-rimpang.png" alt="AQQARAOS Our Roots"></div>
+        <div class="story-copy">
+          <div class="section-kicker">Our Roots</div>
+          <h2>Racikan rempah untuk kesegaran harian.</h2>
+          <p>AQQARAOS mengangkat karakter rempah Nusantara dalam bentuk minuman modern yang mudah dinikmati. Visual natural, rasa segar, dan kemasan premium menjadi pondasi utama brand.</p>
+          <div class="story-points">
+            <div>✓ Fokus pada rasa natural, fresh, dan nyaman diminum.</div>
+            <div>✓ Tampilan premium untuk event, hampers, dan promosi digital.</div>
+            <div>✓ Pembelian jelas melalui WhatsApp, Shopee, dan Instagram.</div>
+          </div>
         </div>
       </div>
     </section>
@@ -1643,42 +1514,16 @@
     <section class="section" id="komposisi">
       <div class="container">
         <div class="section-head">
-          <div class="section-kicker">🌿 Komposisi Alami Pilihan</div>
+          <div class="section-kicker">Komposisi</div>
           <h2>Kebaikan alami dari setiap bahan.</h2>
-          <p>Komposisi telah disesuaikan tanpa temulawak, dan tetap menonjolkan bahan alami pilihan yang relevan dengan produk AQQARAOS.</p>
         </div>
-
         <div class="ingredient-grid">
-          <article class="ingredient-card">
-            <div class="ingredient-emoji">🫚</div>
-            <h3>Jahe</h3>
-            <p>Memberi sensasi hangat, nyaman, dan aroma herbal khas.</p>
-          </article>
-          <article class="ingredient-card">
-            <div class="ingredient-emoji">🟠</div>
-            <h3>Kunyit</h3>
-            <p>Memberi warna kuning alami dan karakter rasa rimpang Nusantara.</p>
-          </article>
-          <article class="ingredient-card">
-            <div class="ingredient-emoji">🌿</div>
-            <h3>Serai</h3>
-            <p>Memberi aroma segar dan sensasi ringan.</p>
-          </article>
-          <article class="ingredient-card">
-            <div class="ingredient-emoji">🪵</div>
-            <h3>Kayu Manis</h3>
-            <p>Memberi wangi manis-rempah yang elegan.</p>
-          </article>
-          <article class="ingredient-card">
-            <div class="ingredient-emoji">🍯</div>
-            <h3>Madu</h3>
-            <p>Memberi sentuhan manis alami dan rasa yang lebih bersahabat.</p>
-          </article>
-          <article class="ingredient-card">
-            <div class="ingredient-emoji">🍋</div>
-            <h3>Lemon</h3>
-            <p>Memberi rasa fresh, ringan, dan menyegarkan.</p>
-          </article>
+          <article class="ingredient-card"><div class="ingredient-emoji">🫚</div><h3>Jahe</h3><p>Memberi sensasi hangat, nyaman, dan aroma herbal khas.</p></article>
+          <article class="ingredient-card"><div class="ingredient-emoji">🟠</div><h3>Kunyit</h3><p>Memberi warna kuning alami dan karakter rasa rimpang Nusantara.</p></article>
+          <article class="ingredient-card"><div class="ingredient-emoji">🌿</div><h3>Serai</h3><p>Memberi aroma segar dan sensasi ringan.</p></article>
+          <article class="ingredient-card"><div class="ingredient-emoji">🪵</div><h3>Kayu Manis</h3><p>Memberi wangi manis-rempah yang elegan.</p></article>
+          <article class="ingredient-card"><div class="ingredient-emoji">🍯</div><h3>Madu</h3><p>Memberi sentuhan manis alami dan rasa yang lebih bersahabat.</p></article>
+          <article class="ingredient-card"><div class="ingredient-emoji">🍋</div><h3>Lemon</h3><p>Memberi rasa fresh, ringan, dan menyegarkan.</p></article>
         </div>
       </div>
     </section>
@@ -1686,55 +1531,36 @@
     <section class="section" id="manfaat">
       <div class="container">
         <div class="section-head">
-          <div class="section-kicker">💚 Manfaat untuk Semua Kalangan</div>
+          <div class="section-kicker">Family & Daily Lifestyle</div>
           <h2>Satu minuman alami, banyak kebaikan untuk keluarga.</h2>
           <p>AQQARAOS diposisikan sebagai minuman pendukung gaya hidup sehat dengan pendekatan bahasa yang aman dan profesional.</p>
         </div>
-
         <div class="audience-grid">
-          <article class="audience-card" data-no="1">
-            <h3>Anak-anak</h3>
-            <strong>Fokus: kebiasaan minum yang lebih alami</strong>
-            <ul>
-              <li>Mendukung kebiasaan minum yang lebih alami.</li>
-              <li>Cocok sebagai pilihan keluarga.</li>
-              <li>Dapat disajikan lebih ringan dan segar.</li>
-            </ul>
-          </article>
-
-          <article class="audience-card" data-no="2">
-            <h3>Remaja</h3>
-            <strong>Fokus: energi & gaya hidup aktif</strong>
-            <ul>
-              <li>Cocok untuk aktivitas sekolah dan kuliah.</li>
-              <li>Alternatif minuman segar yang lebih natural.</li>
-              <li>Menunjang gaya hidup aktif sehari-hari.</li>
-            </ul>
-          </article>
-
-          <article class="audience-card" data-no="3">
-            <h3>Dewasa Pria</h3>
-            <strong>Fokus: aktivitas padat & rutinitas harian</strong>
-            <ul>
-              <li>Cocok untuk aktivitas kerja dan mobilitas tinggi.</li>
-              <li>Memberi sensasi segar dan nyaman.</li>
-              <li>Mendukung rutinitas hidup sehat.</li>
-            </ul>
-          </article>
-
-          <article class="audience-card" data-no="4">
-            <h3>Dewasa Wanita</h3>
-            <strong>Fokus: sehat, seimbang, dan fresh</strong>
-            <ul>
-              <li>Cocok sebagai pendamping pola makan natural.</li>
-              <li>Varian lemon madu terasa lebih ringan dan segar.</li>
-              <li>Mendukung kebiasaan konsumsi yang lebih sehat.</li>
-            </ul>
-          </article>
+          <article class="audience-card" data-no="1"><h3>Anak-anak</h3><strong>Fokus: kebiasaan minum yang lebih alami</strong><ul><li>Mendukung kebiasaan minum yang lebih alami.</li><li>Cocok sebagai pilihan keluarga.</li><li>Dapat disajikan lebih ringan dan segar.</li></ul></article>
+          <article class="audience-card" data-no="2"><h3>Remaja</h3><strong>Fokus: energi & gaya hidup aktif</strong><ul><li>Cocok untuk aktivitas sekolah dan kuliah.</li><li>Alternatif minuman segar yang lebih natural.</li><li>Menunjang gaya hidup aktif sehari-hari.</li></ul></article>
+          <article class="audience-card" data-no="3"><h3>Dewasa Pria</h3><strong>Fokus: aktivitas padat & rutinitas harian</strong><ul><li>Cocok untuk aktivitas kerja dan mobilitas tinggi.</li><li>Memberi sensasi segar dan nyaman.</li><li>Mendukung rutinitas hidup sehat.</li></ul></article>
+          <article class="audience-card" data-no="4"><h3>Dewasa Wanita</h3><strong>Fokus: sehat, seimbang, dan fresh</strong><ul><li>Cocok sebagai pendamping pola makan natural.</li><li>Varian lemon madu terasa lebih ringan dan segar.</li><li>Mendukung kebiasaan konsumsi yang lebih sehat.</li></ul></article>
         </div>
+        <div class="important-note">AQQARAOS bukan obat dan tidak dimaksudkan untuk mendiagnosis, mengobati, atau menyembuhkan penyakit. Hasil terbaik didukung konsumsi wajar, pola makan seimbang, dan gaya hidup sehat.</div>
+      </div>
+    </section>
 
-        <div class="important-note">
-          AQQARAOS bukan obat dan tidak dimaksudkan untuk mendiagnosis, mengobati, atau menyembuhkan penyakit. Hasil terbaik didukung konsumsi wajar, pola makan seimbang, dan gaya hidup sehat.
+    <section class="section" id="galeri">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Product Gallery</div>
+          <h2>Visual produk yang menjadi pusat perhatian.</h2>
+        </div>
+        <div class="gallery-grid">
+          <article class="gallery-card big"><img src="./jus-rimpang.png" alt="AQQARAOS Jus Rimpang"><div class="gallery-caption"><strong>Jus Rimpang</strong><span>Signature product dengan karakter rempah yang kuat dan elegan.</span></div></article>
+          <div class="stack">
+            <article class="gallery-card"><img src="./lemon-grass.png" alt="AQQARAOS Lemon Grass"><div class="gallery-caption"><strong>Lemon Grass</strong><span>Fresh aromatic drink dengan nuansa serai yang ringan.</span></div></article>
+            <article class="gallery-card"><img src="./lemon-madu.png" alt="AQQARAOS Lemon Madu"><div class="gallery-caption"><strong>Lemon Madu</strong><span>Varian segar dengan sentuhan lemon dan madu.</span></div></article>
+          </div>
+          <div class="stack">
+            <article class="gallery-card"><img src="./logo-aqqaraos.jpeg" alt="Logo AQQARAOS"><div class="gallery-caption"><strong>Logo AQQARAOS</strong><span>Identitas brand utama untuk thumbnail dan official store.</span></div></article>
+            <article class="gallery-card"><img src="./lemon-madu.png" alt="AQQARAOS Natural Premium Drink"><div class="gallery-caption"><strong>Natural Premium Drink</strong><span>Kebaikan alami dari rempah Nusantara.</span></div></article>
+          </div>
         </div>
       </div>
     </section>
@@ -1742,39 +1568,14 @@
     <section class="section event-section" id="event">
       <div class="container">
         <div class="section-head">
-          <div class="section-kicker">✨ Event & Campaign</div>
+          <div class="section-kicker">Campaign</div>
           <h2>Aktivasi brand yang sudah berjalan.</h2>
-          <p>Disusun dengan nuansa harian dan premium, tanpa tema Ramadhan atau puasa, sesuai arahan sebelumnya.</p>
         </div>
-
         <div class="event-grid">
-          <article class="event-card">
-            <span class="event-badge">Daily Fresh Campaign</span>
-            <h3>Kesegaran Setiap Hari</h3>
-            <p>Campaign harian untuk memperkenalkan AQQARAOS sebagai minuman rempah segar untuk aktivitas keluarga.</p>
-            
-          </article>
-
-          <article class="event-card">
-            <span class="event-badge">Product Education</span>
-            <h3>Kebaikan Rimpang</h3>
-            <p>Konten edukasi mengenai komposisi alami pilihan dan positioning manfaat untuk berbagai kalangan.</p>
-            
-          </article>
-
-          <article class="event-card">
-            <span class="event-badge">Sales Activation</span>
-            <h3>Open Order Ready</h3>
-            <p>Campaign penjualan dengan pesan sederhana dan kuat: menemani kesegaran Anda setiap hari.</p>
-            
-          </article>
-
-          <article class="event-card">
-            <span class="event-badge">Brand Awareness</span>
-            <h3>Natural Premium</h3>
-            <p>Visual branding untuk memperkuat persepsi AQQARAOS sebagai minuman alami berbahan rempah Nusantara.</p>
-            
-          </article>
+          <article class="event-card"><span class="event-badge">Daily Fresh Campaign</span><h3>Kesegaran Setiap Hari</h3><p>Campaign harian untuk memperkenalkan AQQARAOS sebagai minuman rempah segar untuk aktivitas keluarga.</p></article>
+          <article class="event-card"><span class="event-badge">Product Education</span><h3>Kebaikan Rimpang</h3><p>Konten edukasi mengenai komposisi alami pilihan dan positioning manfaat untuk berbagai kalangan.</p></article>
+          <article class="event-card"><span class="event-badge">Sales Activation</span><h3>Open Order Ready</h3><p>Campaign penjualan dengan pesan sederhana dan kuat: menemani kesegaran Anda setiap hari.</p></article>
+          <article class="event-card"><span class="event-badge">Brand Awareness</span><h3>Natural Premium</h3><p>Visual branding untuk memperkuat persepsi AQQARAOS sebagai minuman alami berbahan rempah Nusantara.</p></article>
         </div>
       </div>
     </section>
@@ -1784,21 +1585,13 @@
         <div class="promo-full">
           <div class="promo-full-video">
             <video controls poster="./jus-rimpang.png">
-              <source src="./video-promosi-aqqaraos.mp4" type="video/mp4" />
+              <source src="./video-promosi-aqqaraos.mp4" type="video/mp4">
               Browser Anda tidak mendukung pemutar video.
             </video>
           </div>
-
           <div class="promo-order-bar">
-            <div>
-              <strong>Order AQQARAOS Sekarang</strong>
-              <span>Jus Rimpang • Lemon Grass • Lemon Madu — siap menemani kesegaran Anda setiap hari.</span>
-            </div>
-            <div class="hero-actions" style="margin:0">
-              <a class="btn btn-primary" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order%20setelah%20melihat%20video%20promosi." target="_blank" rel="noopener">Order via WhatsApp</a>
-              <a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Belanja di Shopee</a>
-              <a class="btn btn-instagram" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Instagram</a>
-            </div>
+            <div><strong>Order AQQARAOS Sekarang</strong><span>Jus Rimpang • Lemon Grass • Lemon Madu — siap menemani kesegaran Anda setiap hari.</span></div>
+            <div class="hero-actions" style="margin:0"><a class="btn btn-green" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order%20setelah%20melihat%20video%20promosi." target="_blank" rel="noopener">Order via WhatsApp</a><a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Belanja di Shopee</a><a class="btn btn-instagram" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Instagram</a></div>
           </div>
         </div>
       </div>
@@ -1807,44 +1600,14 @@
     <section class="section" id="testimoni">
       <div class="container">
         <div class="section-head">
-          <div class="section-kicker">⭐ Testimoni Terbaik</div>
+          <div class="section-kicker">Reviews</div>
           <h2>Ulasan yang memperkuat kualitas brand.</h2>
-          <p>Redaksi dibuat profesional dan dapat disesuaikan kembali jika nanti tersedia testimoni pelanggan asli.</p>
         </div>
-
         <div class="testimonial-grid">
-          <article class="testimonial">
-            <div class="stars">★★★★★</div>
-            <p>“Rasanya segar, tidak terlalu kuat, dan aroma rempahnya terasa alami. Cocok diminum dingin.”</p>
-            <div class="person">
-              <div class="avatar">R</div>
-              <div><strong>Rina</strong><span>Pelanggan keluarga</span></div>
-            </div>
-          </article>
-          <article class="testimonial">
-            <div class="stars">★★★★★</div>
-            <p>“Untuk acara keluarga dan arisan tampilannya menarik. Produk terlihat premium dan mudah diterima tamu.”</p>
-            <div class="person">
-              <div class="avatar">D</div>
-              <div><strong>Dewi</strong><span>Customer event</span></div>
-            </div>
-          </article>
-          <article class="testimonial">
-            <div class="stars">★★★★★</div>
-            <p>“Varian Lemon Madu paling ringan. Anak muda juga suka karena rasanya lebih fresh.”</p>
-            <div class="person">
-              <div class="avatar">N</div>
-              <div><strong>Nadia</strong><span>Pembeli varian lemon</span></div>
-            </div>
-          </article>
-          <article class="testimonial">
-            <div class="stars">★★★★★</div>
-            <p>“Lemon Grass-nya punya aroma yang enak dan tampilannya sangat meyakinkan untuk promosi.”</p>
-            <div class="person">
-              <div class="avatar">A</div>
-              <div><strong>Andri</strong><span>Pelanggan minuman herbal</span></div>
-            </div>
-          </article>
+          <article class="testimonial"><div class="stars">★★★★★</div><p>“Rasanya segar, tidak terlalu kuat, dan aroma rempahnya terasa alami. Cocok diminum dingin.”</p><div class="person"><div class="avatar">R</div><div><strong>Rina</strong><span>Pelanggan keluarga</span></div></div></article>
+          <article class="testimonial"><div class="stars">★★★★★</div><p>“Untuk acara keluarga dan arisan tampilannya menarik. Produk terlihat premium dan mudah diterima tamu.”</p><div class="person"><div class="avatar">D</div><div><strong>Dewi</strong><span>Customer event</span></div></div></article>
+          <article class="testimonial"><div class="stars">★★★★★</div><p>“Varian Lemon Madu paling ringan. Anak muda juga suka karena rasanya lebih fresh.”</p><div class="person"><div class="avatar">N</div><div><strong>Nadia</strong><span>Pembeli varian lemon</span></div></div></article>
+          <article class="testimonial"><div class="stars">★★★★★</div><p>“Lemon Grass-nya punya aroma yang enak dan tampilannya sangat meyakinkan untuk promosi.”</p><div class="person"><div class="avatar">A</div><div><strong>Andri</strong><span>Pelanggan minuman herbal</span></div></div></article>
         </div>
       </div>
     </section>
@@ -1853,7 +1616,7 @@
       <div class="container">
         <div class="store-card">
           <div>
-            <div class="section-kicker">🛒 Official Store</div>
+            <div class="section-kicker">Official Store</div>
             <h2>Kunjungi toko AQQARAOS di Shopee.</h2>
             <p>Pembelian bisa dilakukan lebih praktis melalui Shopee untuk pemesanan pribadi, paket keluarga, kebutuhan acara, maupun repeat order.</p>
             <div class="store-points">
@@ -1862,48 +1625,25 @@
               <div>✓ Instagram resmi: <strong>@aqqaraos_official</strong></div>
               <div>✓ Tanya produk direct WhatsApp: <strong>087781136221</strong></div>
             </div>
-            <div class="hero-actions">
-              <a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Belanja di Shopee</a>
-              <a class="btn btn-instagram" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Instagram</a>
-              <a class="btn btn-primary" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20tanya%20produk%20dan%20stok." target="_blank" rel="noopener">Tanya Stok</a>
-            </div>
+            <div class="hero-actions"><a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Belanja di Shopee</a><a class="btn btn-instagram" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Instagram</a><a class="btn btn-green" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20tanya%20produk%20dan%20stok." target="_blank" rel="noopener">Tanya Stok</a></div>
           </div>
-
           <div class="store-visual">
-            <div class="store-box">
-              <img class="store-logo-img" src="./logo-aqqaraos.jpeg" alt="Logo AQQARAOS" />
-              <strong>Aqqa_raos</strong>
-              <span>Official Store on Shopee & Instagram</span>
-            </div>
+            <div class="store-box"><img class="store-logo-img" src="./logo-aqqaraos.jpeg" alt="Logo AQQARAOS"><strong>Aqqa_raos</strong><span>Official Store on Shopee & Instagram</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section usage-section">
       <div class="container">
         <div class="section-head">
-          <div class="section-kicker">🥤 Cara Konsumsi</div>
+          <div class="section-kicker">Cara Konsumsi</div>
           <h2>Praktis diminum kapan saja.</h2>
-          <p>Disusun sederhana, rapi, dan tetap profesional untuk memperkuat komunikasi produk di website.</p>
         </div>
-
         <div class="usage-grid">
-          <article class="usage-card">
-            <div class="icon-box">🌀</div>
-            <h3>Kocok Sebelum Diminum</h3>
-            <p>Agar rasa dan komposisi minuman tercampur lebih merata sebelum dikonsumsi.</p>
-          </article>
-          <article class="usage-card">
-            <div class="icon-box">⏰</div>
-            <h3>1–2 Kali Sehari</h3>
-            <p>Dapat dikonsumsi secara wajar sebagai bagian dari kebiasaan hidup yang lebih sehat.</p>
-          </article>
-          <article class="usage-card">
-            <div class="icon-box">❄️</div>
-            <h3>Lebih Segar Dingin</h3>
-            <p>Cocok disajikan dingin agar rasa lebih segar, ringan, dan semakin nikmat.</p>
-          </article>
+          <article class="usage-card"><div class="category-icon">🌀</div><h3>Kocok Sebelum Diminum</h3><p>Agar rasa dan komposisi minuman tercampur lebih merata sebelum dikonsumsi.</p></article>
+          <article class="usage-card"><div class="category-icon">⏰</div><h3>1–2 Kali Sehari</h3><p>Dapat dikonsumsi secara wajar sebagai bagian dari kebiasaan hidup yang lebih sehat.</p></article>
+          <article class="usage-card"><div class="category-icon">❄️</div><h3>Lebih Segar Dingin</h3><p>Cocok disajikan dingin agar rasa lebih segar, ringan, dan semakin nikmat.</p></article>
         </div>
       </div>
     </section>
@@ -1913,11 +1653,7 @@
         <div class="cta-panel">
           <h2>Siap menikmati kesegaran AQQARAOS?</h2>
           <p>Order sekarang untuk kebutuhan pribadi, keluarga, acara, arisan, hampers, maupun repeat order. AQQARAOS adalah pilihan alami untuk keluarga Indonesia.</p>
-          <div class="cta-actions">
-            <a class="btn btn-primary" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order%20sekarang." target="_blank" rel="noopener">Order via WhatsApp</a>
-            <a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Kunjungi Shopee</a>
-            <a class="btn btn-instagram" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Lihat Instagram</a>
-          </div>
+          <div class="cta-actions"><a class="btn btn-green" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order%20sekarang." target="_blank" rel="noopener">Order via WhatsApp</a><a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Kunjungi Shopee</a><a class="btn btn-instagram" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Lihat Instagram</a></div>
         </div>
       </div>
     </section>
@@ -1931,15 +1667,11 @@
 
   <footer>
     <div class="container footer-grid">
-      <div>
-        <strong>AQQARAOS Jus Rimpang</strong>
-        <p>Sehat Alami, Hidup Berkualitas — minuman herbal alami dari rempah Nusantara.</p>
+      <div class="footer-brand">
+        <img src="./logo-aqqaraos.jpeg" alt="Logo AQQARAOS">
+        <div><strong>AQQARAOS Premium Herbal Drink</strong><p>Sehat Alami, Hidup Berkualitas — minuman herbal alami dari rempah Nusantara.</p></div>
       </div>
-      <div class="footer-links">
-        <a class="btn btn-outline" href="#home">Kembali ke Atas</a>
-        <a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Shopee</a>
-        <a class="btn btn-instagram" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Instagram</a>
-      </div>
+      <div class="footer-links"><a class="btn btn-light" href="#home">Kembali ke Atas</a><a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Shopee</a><a class="btn btn-instagram" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Instagram</a></div>
     </div>
   </footer>
 
