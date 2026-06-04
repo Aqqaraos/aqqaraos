@@ -63,8 +63,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: saturate(1.08) contrast(1.02);
-      transform: scale(1.03);
+      filter: saturate(1.18) contrast(1.08) brightness(1.05);
+      transform: scale(1.02);
     }
 
     .site-bg-overlay {
@@ -352,7 +352,7 @@
     .feature-card {
       overflow: hidden;
       border-radius: 34px;
-      background: rgba(255,255,255,.92);
+      background: rgba(255,255,255,.88);
       box-shadow: 0 24px 70px rgba(0,0,0,.18);
       border: 1px solid rgba(255,255,255,.36);
     }
@@ -592,7 +592,7 @@
     }
 
     .split-section {
-      background: rgba(245,251,244,.88);
+      background: rgba(245,251,244,.76);
       border-block: 1px solid rgba(229,237,223,.82);
       backdrop-filter: blur(3px);
     }
@@ -1270,8 +1270,6 @@
         align-items: flex-start;
       }
 
-      .nav-actions .btn-shopee { display: none; }
-
       .announcement .container {
         justify-content: center;
         text-align: center;
@@ -1383,23 +1381,127 @@
         min-height: 300px;
       }
     }
+  
+    .order-form-panel {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 32px;
+      align-items: center;
+      border-radius: 38px;
+      padding: 38px;
+      background: rgba(255,255,255,.88);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+    }
+
+    .order-copy h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--green-900);
+      font-size: clamp(34px, 4.6vw, 58px);
+      line-height: 1.06;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .order-copy p {
+      color: var(--muted);
+      line-height: 1.78;
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    .order-note {
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: var(--green-soft);
+      color: var(--green-900);
+      font-weight: 850;
+      line-height: 1.6;
+      border: 1px solid #d8eadc;
+    }
+
+    .order-form {
+      display: grid;
+      gap: 16px;
+      padding: 26px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, #ffffff, #f7fff7);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .form-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .form-field label {
+      color: var(--green-900);
+      font-weight: 950;
+      font-size: 14px;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      border: 1px solid #d8eadc;
+      border-radius: 16px;
+      padding: 14px 15px;
+      font: inherit;
+      color: var(--text);
+      background: white;
+      outline: none;
+      transition: .2s ease;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--green-700);
+      box-shadow: 0 0 0 4px rgba(22,128,71,.10);
+    }
+
+    .form-field textarea {
+      min-height: 116px;
+      resize: vertical;
+    }
+
+    .form-helper {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    @media (max-width: 940px) {
+      .order-form-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .order-form-panel,
+      .order-form {
+        padding: 18px;
+        border-radius: 26px;
+      }
+    }
+
   </style>
 </head>
 
 <body>
   <div class="site-bg-video" aria-hidden="true">
     <video autoplay muted loop playsinline preload="auto">
-      <source src="./bg-aqqaraos.mp4" type="video/mp4">
+      <source src="./bg-aqqaraos-layanan.mp4" type="video/mp4">
     </video>
   </div>
   <div class="site-bg-overlay" aria-hidden="true"></div>
   <div class="announcement">
     <div class="container">
-      <div><strong>Open Order Ready</strong> — Minuman herbal premium untuk kesegaran harian.</div>
-      <div class="announce-links">
-        <a href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Shopee: Aqqa_raos</a>
-        <a href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Instagram: @aqqaraos_official</a>
-      </div>
+      <div><strong>Open Order Ready</strong> — Hubungi layanan kami untuk informasi produk dan pemesanan.</div>
+      <div class="announce-links"><a href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Instagram: @aqqaraos_official</a></div>
     </div>
   </div>
 
@@ -1415,19 +1517,18 @@
       <nav id="navMenu">
         <ul>
           <li><a href="#home">Home</a></li>
-          <li><a href="#produk">Shop All</a></li>
+          <li><a href="#produk">Produk</a></li>
           <li><a href="#wellness">Wellness</a></li>
           <li><a href="#cerita">Our Roots</a></li>
           <li><a href="#galeri">Gallery</a></li>
           <li><a href="#event">Campaign</a></li>
           <li><a href="#video">Video</a></li>
-          <li><a href="#store">Store</a></li>
+          <li><a href="#order-form">Order</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Shopee</a>
-        <a class="btn btn-green" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order%20produk." target="_blank" rel="noopener">Order</a>
+        <a class="btn btn-green" href="https://wa.me/6287781136221?text=Hallo%2C%20Aqqa%20raos%2C%20apakah%20saya%20bisa%20mendapatkan%20informasi%20lebih%20lanjut%20terkait%20produk%20anda%3F" target="_blank" rel="noopener">Kontak Layanan Kami</a>
       </div>
     </div>
   </header>
@@ -1442,8 +1543,7 @@
             <p>AQQARAOS hadir sebagai minuman herbal modern berbasis rempah Nusantara. Dibuat untuk menemani aktivitas harian dengan rasa yang segar, natural, dan premium.</p>
 
             <div class="hero-actions">
-              <a class="btn btn-green" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20tanya%20produk." target="_blank" rel="noopener">Order via WhatsApp</a>
-              <a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Belanja di Shopee</a>
+              <a class="btn btn-green" href="https://wa.me/6287781136221?text=Hallo%2C%20Aqqa%20raos%2C%20apakah%20saya%20bisa%20mendapatkan%20informasi%20lebih%20lanjut%20terkait%20produk%20anda%3F" target="_blank" rel="noopener">Kontak Layanan Kami</a>
               <a class="btn btn-instagram" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Instagram</a>
             </div>
           </div>
@@ -1487,7 +1587,6 @@
           <h2>Minuman herbal modern dengan visual premium.</h2>
           <div class="hero-actions">
             <a class="btn btn-green" href="#produk">Lihat Varian</a>
-            <a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Belanja di Shopee</a>
           </div>
         </div>
       </div>
@@ -1508,7 +1607,7 @@
               <h3>Jus Rimpang</h3>
               <p>Varian signature dengan karakter rimpang yang hangat, segar, dan cocok untuk konsumsi harian.</p>
               <div class="tags"><span class="tag">Jahe</span><span class="tag">Kunyit</span><span class="tag">Serai</span><span class="tag">Kayu Manis</span><span class="tag">Madu</span></div>
-              <div class="product-actions"><a class="btn btn-green" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order%20Jus%20Rimpang." target="_blank" rel="noopener">Order WhatsApp</a><a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Shopee</a></div>
+              <div class="product-actions"><a class="btn btn-green" href="#order-form">Order</a></div>
             </div>
           </article>
 
@@ -1519,7 +1618,7 @@
               <h3>Lemon Grass</h3>
               <p>Rasa serai yang lebih ringan dan aromatic, cocok untuk penyuka minuman herbal dengan sensasi fresh.</p>
               <div class="tags"><span class="tag">Serai</span><span class="tag">Fresh Aroma</span><span class="tag">Ringan</span><span class="tag">Siap Minum</span></div>
-              <div class="product-actions"><a class="btn btn-green" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order%20Lemon%20Grass." target="_blank" rel="noopener">Order WhatsApp</a><a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Shopee</a></div>
+              <div class="product-actions"><a class="btn btn-green" href="#order-form">Order</a></div>
             </div>
           </article>
 
@@ -1530,7 +1629,7 @@
               <h3>Lemon Madu</h3>
               <p>Perpaduan lemon dan madu untuk rasa yang lebih cerah, segar, dan mudah diterima berbagai kalangan.</p>
               <div class="tags"><span class="tag">Lemon</span><span class="tag">Madu</span><span class="tag">Segar</span><span class="tag">Keluarga</span></div>
-              <div class="product-actions"><a class="btn btn-green" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order%20Lemon%20Madu." target="_blank" rel="noopener">Order WhatsApp</a><a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Shopee</a></div>
+              <div class="product-actions"><a class="btn btn-green" href="#order-form">Order</a></div>
             </div>
           </article>
         </div>
@@ -1547,7 +1646,7 @@
           <div class="story-points">
             <div>✓ Fokus pada rasa natural, fresh, dan nyaman diminum.</div>
             <div>✓ Tampilan premium untuk event, hampers, dan promosi digital.</div>
-            <div>✓ Pembelian jelas melalui WhatsApp, Shopee, dan Instagram.</div>
+            <div>✓ Pembelian dan informasi produk dapat dilakukan melalui WhatsApp dan Instagram.</div>
           </div>
         </div>
       </div>
@@ -1626,14 +1725,14 @@
       <div class="container">
         <div class="promo-full">
           <div class="promo-full-video">
-            <video controls poster="./jus-rimpang.png">
+            <video controls autoplay muted loop playsinline preload="auto" poster="./jus-rimpang.png">
               <source src="./video-promosi-aqqaraos.mp4" type="video/mp4">
               Browser Anda tidak mendukung pemutar video.
             </video>
           </div>
           <div class="promo-order-bar">
             <div><strong>Order AQQARAOS Sekarang</strong><span>Jus Rimpang • Lemon Grass • Lemon Madu — siap menemani kesegaran Anda setiap hari.</span></div>
-            <div class="hero-actions" style="margin:0"><a class="btn btn-green" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order%20setelah%20melihat%20video%20promosi." target="_blank" rel="noopener">Order via WhatsApp</a><a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Belanja di Shopee</a><a class="btn btn-instagram" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Instagram</a></div>
+            <div class="hero-actions" style="margin:0"><a class="btn btn-green" href="https://wa.me/6287781136221?text=Hallo%2C%20Aqqa%20raos%2C%20apakah%20saya%20bisa%20mendapatkan%20informasi%20lebih%20lanjut%20terkait%20produk%20anda%3F" target="_blank" rel="noopener">Kontak Layanan Kami</a><a class="btn btn-instagram" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Instagram</a></div>
           </div>
         </div>
       </div>
@@ -1654,29 +1753,43 @@
       </div>
     </section>
 
-    <section class="section" id="store">
+    <section class="section" id="order-form">
       <div class="container">
-        <div class="store-card">
-          <div>
-            <div class="section-kicker">Official Store</div>
-            <h2>Kunjungi toko AQQARAOS di Shopee.</h2>
-            <p>Pembelian bisa dilakukan lebih praktis melalui Shopee untuk pemesanan pribadi, paket keluarga, kebutuhan acara, maupun repeat order.</p>
-            <div class="store-points">
-              <div>✓ Nama toko: <strong>Aqqa_raos</strong></div>
-              <div>✓ Link toko: <strong>https://id.shp.ee/WWXntPQW</strong></div>
-              <div>✓ Instagram resmi: <strong>@aqqaraos_official</strong></div>
-              <div>✓ Tanya produk direct WhatsApp: <strong>087781136221</strong></div>
+        <div class="order-form-panel">
+          <div class="order-copy">
+            <div class="section-kicker">Layanan Order</div>
+            <h2>Form Pemesanan & Informasi Produk</h2>
+            <p>Silakan lengkapi data berikut. Tim AQQARAOS akan menghubungi Anda lebih lanjut melalui WhatsApp.</p>
+            <div class="order-note">
+              Data yang dikirim melalui form ini akan masuk ke WhatsApp layanan order AQQARAOS di nomor <strong>087781136212</strong>.
             </div>
-            <div class="hero-actions"><a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Belanja di Shopee</a><a class="btn btn-instagram" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Instagram</a><a class="btn btn-green" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20tanya%20produk%20dan%20stok." target="_blank" rel="noopener">Tanya Stok</a></div>
           </div>
-          <div class="store-visual">
-            <div class="store-box"><img class="store-logo-img" src="./logo-aqqaraos.jpeg" alt="Logo AQQARAOS"><strong>Aqqa_raos</strong><span>Official Store on Shopee & Instagram</span></div>
-          </div>
+
+          <form class="order-form" id="aqqaraosOrderForm">
+            <div class="form-field">
+              <label for="nama">Nama :</label>
+              <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+            </div>
+
+            <div class="form-field">
+              <label for="handphone">Nomor Handphone :</label>
+              <input type="tel" id="handphone" name="handphone" placeholder="Contoh: 0877xxxxxxx" required>
+            </div>
+
+            <div class="form-field">
+              <label for="referensi">Info referensi :</label>
+              <textarea id="referensi" name="referensi" placeholder="Contoh: ingin order Jus Rimpang / Lemon Grass / Lemon Madu, jumlah kebutuhan, alamat area, atau pertanyaan produk." required></textarea>
+            </div>
+
+            <p class="form-helper">Setelah klik tombol kirim, Anda akan diarahkan ke WhatsApp. Mohon tekan tombol kirim di WhatsApp agar data terkirim ke layanan order.</p>
+
+            <button type="submit" class="btn btn-green">Kirim Data Order via WhatsApp</button>
+          </form>
         </div>
       </div>
     </section>
 
-    <section class="section usage-section">
+<section class="section usage-section">
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Cara Konsumsi</div>
@@ -1695,15 +1808,14 @@
         <div class="cta-panel">
           <h2>Siap menikmati kesegaran AQQARAOS?</h2>
           <p>Order sekarang untuk kebutuhan pribadi, keluarga, acara, arisan, hampers, maupun repeat order. AQQARAOS adalah pilihan alami untuk keluarga Indonesia.</p>
-          <div class="cta-actions"><a class="btn btn-green" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order%20sekarang." target="_blank" rel="noopener">Order via WhatsApp</a><a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Kunjungi Shopee</a><a class="btn btn-instagram" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Lihat Instagram</a></div>
+          <div class="cta-actions"><a class="btn btn-green" href="https://wa.me/6287781136221?text=Hallo%2C%20Aqqa%20raos%2C%20apakah%20saya%20bisa%20mendapatkan%20informasi%20lebih%20lanjut%20terkait%20produk%20anda%3F" target="_blank" rel="noopener">Kontak Layanan Kami</a><a class="btn btn-instagram" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Lihat Instagram</a></div>
         </div>
       </div>
     </section>
   </main>
 
   <div class="floating-buttons" aria-label="Tombol cepat order">
-    <a class="float-wa" href="https://wa.me/6287781136221?text=Halo%20AQQARAOS%2C%20saya%20mau%20order." target="_blank" rel="noopener" title="WhatsApp">W</a>
-    <a class="float-shop" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener" title="Shopee">S</a>
+    <a class="float-wa" href="https://wa.me/6287781136221?text=Hallo%2C%20Aqqa%20raos%2C%20apakah%20saya%20bisa%20mendapatkan%20informasi%20lebih%20lanjut%20terkait%20produk%20anda%3F" target="_blank" rel="noopener" title="Kontak Layanan Kami">W</a>
     <a class="float-ig" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener" title="Instagram">I</a>
   </div>
 
@@ -1713,7 +1825,7 @@
         <img src="./logo-aqqaraos.jpeg" alt="Logo AQQARAOS">
         <div><strong>AQQARAOS Premium Herbal Drink</strong><p>Sehat Alami, Hidup Berkualitas — minuman herbal alami dari rempah Nusantara.</p></div>
       </div>
-      <div class="footer-links"><a class="btn btn-light" href="#home">Kembali ke Atas</a><a class="btn btn-shopee" href="https://id.shp.ee/WWXntPQW" target="_blank" rel="noopener">Shopee</a><a class="btn btn-instagram" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Instagram</a></div>
+      <div class="footer-links"><a class="btn btn-light" href="#home">Kembali ke Atas</a><a class="btn btn-green" href="#order-form">Order</a><a class="btn btn-instagram" href="https://www.instagram.com/aqqaraos_official?igsh=MTlrZzhoZWM5YnI3Zw==" target="_blank" rel="noopener">Instagram</a></div>
     </div>
   </footer>
 
@@ -1732,6 +1844,37 @@
         menuToggle.textContent = "☰";
       });
     });
+  
+    const orderForm = document.getElementById("aqqaraosOrderForm");
+
+    if (orderForm) {
+      orderForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const nama = document.getElementById("nama").value.trim();
+        const handphone = document.getElementById("handphone").value.trim();
+        const referensi = document.getElementById("referensi").value.trim();
+
+        if (!nama || !handphone || !referensi) {
+          alert("Mohon lengkapi Nama, Nomor Handphone, dan Info referensi terlebih dahulu.");
+          return;
+        }
+
+        const message = [
+          "Hallo Aqqa raos, saya ingin mendapatkan informasi/order produk.",
+          "",
+          "Nama : " + nama,
+          "Nomor Handphone : " + handphone,
+          "Info referensi : " + referensi,
+          "",
+          "Mohon dapat dihubungi lebih lanjut. Terima kasih."
+        ].join("\n");
+
+        const whatsappUrl = "https://wa.me/6287781136212?text=" + encodeURIComponent(message);
+        window.open(whatsappUrl, "_blank");
+      });
+    }
+
   </script>
 </body>
 </html>
