@@ -1725,8 +1725,10 @@
       <div class="container">
         <div class="promo-full">
           <div class="promo-full-video">
-            <video controls autoplay muted loop playsinline preload="auto" poster="./jus-rimpang.png">
+            <video id="promoVideo" controls autoplay muted loop playsinline preload="metadata" poster="./jus-rimpang.png">
               <source src="./video-promosi-aqqaraos.mp4" type="video/mp4">
+              <source src="./bg-aqqaraos-layanan.mp4" type="video/mp4">
+              Browser Anda tidak mendukung pemutar video.
             </video>
           </div>
           <div class="promo-order-bar">
@@ -1871,6 +1873,27 @@
 
         const whatsappUrl = "https://wa.me/6287781136221?text=" + encodeURIComponent(message);
         window.open(whatsappUrl, "_blank");
+      });
+    }
+
+  
+    const promoVideo = document.getElementById("promoVideo");
+    if (promoVideo) {
+      promoVideo.addEventListener("loadedmetadata", () => {
+        const playPromise = promoVideo.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            promoVideo.controls = true;
+          });
+        }
+      });
+
+      promoVideo.addEventListener("error", () => {
+        if (!promoVideo.dataset.fallbackUsed) {
+          promoVideo.dataset.fallbackUsed = "true";
+          promoVideo.src = "./bg-aqqaraos-layanan.mp4";
+          promoVideo.load();
+        }
       });
     }
 
