@@ -44,11 +44,44 @@
     body {
       font-family: Inter, "Segoe UI", Arial, sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at 10% 2%, rgba(246, 198, 78, 0.18), transparent 24%),
-        radial-gradient(circle at 88% 8%, rgba(32, 164, 91, 0.14), transparent 24%),
-        linear-gradient(180deg, #ffffff 0%, #f8fff8 40%, #fff9ef 100%);
+      background: #f8fff8;
       overflow-x: hidden;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .site-bg-video {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      overflow: hidden;
+      background: var(--green-900);
+      pointer-events: none;
+    }
+
+    .site-bg-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.08) contrast(1.02);
+      transform: scale(1.03);
+    }
+
+    .site-bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(7,59,34,.66) 0%, rgba(7,59,34,.38) 18%, rgba(248,255,248,.88) 38%, rgba(255,249,239,.94) 100%),
+        radial-gradient(circle at 10% 2%, rgba(246,198,78,.24), transparent 24%),
+        radial-gradient(circle at 88% 8%, rgba(32,164,91,.18), transparent 24%);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .site-bg-video video {
+        display: none;
+      }
     }
 
     a { color: inherit; text-decoration: none; }
@@ -89,9 +122,9 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255,255,255,.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.86);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(229,237,223,.82);
     }
 
     .navbar {
@@ -254,10 +287,10 @@
       align-items: center;
       gap: 36px;
       padding: 54px;
-      background:
-        linear-gradient(90deg, rgba(7,59,34,.94) 0%, rgba(7,59,34,.80) 44%, rgba(7,59,34,.22) 100%),
-        url("./lemon-grass.png") center center / cover no-repeat;
+      background: linear-gradient(90deg, rgba(7,59,34,.88) 0%, rgba(7,59,34,.70) 44%, rgba(7,59,34,.18) 100%);
       box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(255,255,255,.22);
+      backdrop-filter: blur(2px);
     }
 
     .hero-shell::before {
@@ -305,10 +338,11 @@
 
     .hero-copy p {
       max-width: 620px;
-      color: rgba(255,255,255,.82);
+      color: rgba(255,255,255,.88);
       font-size: 18px;
       line-height: 1.78;
       margin-bottom: 26px;
+      text-shadow: 0 1px 12px rgba(0,0,0,.18);
     }
 
     .hero-visual {
@@ -353,6 +387,8 @@
 
     .section {
       padding: 82px 0;
+      background: rgba(255,255,255,.84);
+      backdrop-filter: blur(2px);
     }
 
     .section-head {
@@ -556,8 +592,9 @@
     }
 
     .split-section {
-      background: #f5fbf4;
-      border-block: 1px solid var(--line);
+      background: rgba(245,251,244,.88);
+      border-block: 1px solid rgba(229,237,223,.82);
+      backdrop-filter: blur(3px);
     }
 
     .story-grid {
@@ -815,10 +852,9 @@
     }
 
     .event-section {
-      background:
-        linear-gradient(135deg, rgba(7,59,34,.94), rgba(11,87,47,.84)),
-        url("./jus-rimpang.png") center center / cover no-repeat;
+      background: linear-gradient(135deg, rgba(7,59,34,.86), rgba(11,87,47,.72));
       color: white;
+      backdrop-filter: blur(2px);
     }
 
     .event-section .section-kicker {
@@ -872,11 +908,11 @@
       display: block;
       border-radius: 38px;
       padding: 28px;
-      background:
-        linear-gradient(135deg, rgba(7,59,34,.90), rgba(11,87,47,.76)),
-        url("./lemon-grass.png") center center / cover no-repeat;
+      background: linear-gradient(135deg, rgba(7,59,34,.84), rgba(11,87,47,.66));
       box-shadow: var(--shadow-lg);
       overflow: hidden;
+      border: 1px solid rgba(255,255,255,.20);
+      backdrop-filter: blur(2px);
     }
 
     .promo-full-video {
@@ -1088,11 +1124,11 @@
       text-align: center;
       border-radius: 42px;
       padding: 64px 30px;
-      background:
-        linear-gradient(135deg, rgba(7,59,34,.92), rgba(11,87,47,.76)),
-        url("./lemon-madu.png") center center / cover no-repeat;
+      background: linear-gradient(135deg, rgba(7,59,34,.88), rgba(11,87,47,.70));
       box-shadow: var(--shadow-lg);
       color: white;
+      border: 1px solid rgba(255,255,255,.20);
+      backdrop-filter: blur(2px);
     }
 
     .cta-panel h2 {
@@ -1351,6 +1387,12 @@
 </head>
 
 <body>
+  <div class="site-bg-video" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="./bg-aqqaraos.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="site-bg-overlay" aria-hidden="true"></div>
   <div class="announcement">
     <div class="container">
       <div><strong>Open Order Ready</strong> — Minuman herbal premium untuk kesegaran harian.</div>
