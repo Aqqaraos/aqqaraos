@@ -1620,6 +1620,104 @@
       }
     }
 
+  
+    .video-carousel {
+      position: relative;
+      display: grid;
+      gap: 16px;
+    }
+
+    .video-carousel-stage {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 28px;
+      background: #000;
+      box-shadow: 0 24px 60px rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+
+    .video-page {
+      display: none;
+      width: 100%;
+      animation: videoFade .35s ease;
+    }
+
+    .video-page.active {
+      display: block;
+    }
+
+    .video-page video {
+      width: 100%;
+      height: min(760px, 76vh);
+      min-height: 520px;
+      object-fit: cover;
+      display: block;
+      background: #000;
+    }
+
+    .video-next-btn {
+      position: absolute;
+      right: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 4;
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.34);
+      background: rgba(255,255,255,.92);
+      color: var(--green-900);
+      font-size: 28px;
+      font-weight: 950;
+      cursor: pointer;
+      box-shadow: 0 18px 44px rgba(0,0,0,.22);
+      transition: .25s ease;
+    }
+
+    .video-next-btn:hover {
+      transform: translateY(-50%) scale(1.05);
+      background: #ffffff;
+    }
+
+    .video-counter {
+      position: absolute;
+      left: 22px;
+      bottom: 22px;
+      z-index: 4;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.48);
+      color: white;
+      font-size: 13px;
+      font-weight: 850;
+      backdrop-filter: blur(8px);
+    }
+
+    @keyframes videoFade {
+      from { opacity: 0; transform: scale(.992); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .video-page video {
+        height: 62vh;
+        min-height: 360px;
+      }
+
+      .video-next-btn {
+        width: 58px;
+        height: 58px;
+        right: 14px;
+        font-size: 22px;
+      }
+
+      .video-counter {
+        left: 14px;
+        bottom: 14px;
+      }
+    }
+
   </style>
 </head>
 
@@ -1854,30 +1952,29 @@
     </section>
 
     
+    
     <section class="section" id="video">
       <div class="container">
         <div class="promo-full">
-          <div class="promo-full-video">
-            <div class="video-slider">
-              <div class="video-tabs" role="tablist" aria-label="Pilihan video AQQARAOS">
-                <button type="button" class="video-tab active" data-video-slide="promo" aria-label="Video 1">1</button>
-                <button type="button" class="video-tab" data-video-slide="background" aria-label="Video 2">2</button>
-              </div>
-
-              <article class="video-slide active" data-video-panel="promo">
-                <video id="promoPreviewVideo" controls playsinline preload="metadata" poster="./lemon-madu.png">
+          <div class="video-carousel" aria-label="Video AQQARAOS">
+            <div class="video-carousel-stage">
+              <article class="video-page active" data-video-page="0">
+                <video controls playsinline preload="metadata" poster="./lemon-madu.png">
                   <source src="./video-promosi-aqqaraos.webm" type="video/webm">
                   <source src="./video-promosi-aqqaraos-final.mp4" type="video/mp4">
                   Browser Anda tidak mendukung pemutar video.
                 </video>
               </article>
 
-              <article class="video-slide" data-video-panel="background">
-                <video id="backgroundPreviewVideo" controls playsinline preload="metadata" poster="./jus-rimpang.png">
+              <article class="video-page" data-video-page="1">
+                <video controls playsinline preload="metadata" poster="./jus-rimpang.png">
                   <source src="./bg-aqqaraos-layanan.mp4" type="video/mp4">
                   Browser Anda tidak mendukung pemutar video.
                 </video>
               </article>
+
+              <button type="button" class="video-next-btn" id="videoNextBtn" aria-label="Video berikutnya">›</button>
+              <div class="video-counter" id="videoCounter">1 / 2</div>
             </div>
           </div>
 
@@ -2025,27 +2122,7 @@
         window.open(whatsappUrl, "_blank");
       });
     }
-
-  
-    const videoTabs = document.querySelectorAll(".video-tab");
-    const videoPanels = document.querySelectorAll(".video-slide");
-
-    videoTabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        const target = tab.dataset.videoSlide;
-
-        videoTabs.forEach((item) => item.classList.remove("active"));
-
-        videoPanels.forEach((panel) => {
-          panel.classList.remove("active");
-          const panelVideo = panel.querySelector("video");
-          if (panelVideo) {
-            panelVideo.pause();
-            panelVideo.currentTime = 0;
-          }
-        });
-
-        tab.classList.add("active");
+tab.classList.add("active");
 
         const activePanel = document.querySelector('[data-video-panel="' + target + '"]');
         if (activePanel) {
@@ -2053,6 +2130,35 @@
         }
       });
     });
+
+  
+    const videoPages = document.querySelectorAll(".video-page");
+    const videoNextBtn = document.getElementById("videoNextBtn");
+    const videoCounter = document.getElementById("videoCounter");
+    let activeVideoPage = 0;
+
+    function showVideoPage(index) {
+      videoPages.forEach((page, pageIndex) => {
+        const video = page.querySelector("video");
+        page.classList.toggle("active", pageIndex === index);
+
+        if (video && pageIndex !== index) {
+          video.pause();
+          video.currentTime = 0;
+        }
+      });
+
+      if (videoCounter) {
+        videoCounter.textContent = (index + 1) + " / " + videoPages.length;
+      }
+    }
+
+    if (videoNextBtn && videoPages.length > 0) {
+      videoNextBtn.addEventListener("click", () => {
+        activeVideoPage = (activeVideoPage + 1) % videoPages.length;
+        showVideoPage(activeVideoPage);
+      });
+    }
 
   </script>
 </body>
