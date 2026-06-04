@@ -1488,6 +1488,25 @@
       }
     }
 
+  
+    .promo-video-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 16px 0 2px;
+    }
+
+    .promo-video-status {
+      text-align: center;
+      color: rgba(255,255,255,.84);
+      font-size: 13px;
+      font-weight: 750;
+      line-height: 1.55;
+      margin-top: 8px;
+    }
+
   </style>
 </head>
 
@@ -1725,11 +1744,16 @@
       <div class="container">
         <div class="promo-full">
           <div class="promo-full-video">
-            <video id="promoVideo" controls autoplay muted loop playsinline preload="metadata" poster="./jus-rimpang.png">
-              <source src="./video-promosi-aqqaraos.mp4" type="video/mp4">
-              <source src="./bg-aqqaraos-layanan.mp4" type="video/mp4">
+            <video id="promoVideo" controls playsinline preload="auto" poster="./jus-rimpang.png">
+              <source src="./video-promosi-aqqaraos.webm" type="video/webm">
+              <source src="./video-promosi-aqqaraos-final.mp4" type="video/mp4">
               Browser Anda tidak mendukung pemutar video.
             </video>
+            <div class="promo-video-actions">
+              <button type="button" class="btn btn-green" id="playPromoVideo">Putar Video Promosi</button>
+              <a class="btn btn-light" href="./video-promosi-aqqaraos-final.mp4" target="_blank" rel="noopener">Buka Video</a>
+            </div>
+            <p class="promo-video-status" id="promoVideoStatus">Jika video belum berjalan, klik tombol Putar Video Promosi atau Buka Video.</p>
           </div>
           <div class="promo-order-bar">
             <div><strong>Order AQQARAOS Sekarang</strong><span>Jus Rimpang • Lemon Grass • Lemon Madu — siap menemani kesegaran Anda setiap hari.</span></div>
@@ -1893,6 +1917,41 @@
           promoVideo.dataset.fallbackUsed = "true";
           promoVideo.src = "./bg-aqqaraos-layanan.mp4";
           promoVideo.load();
+        }
+      });
+    }
+
+  
+    const promoVideo = document.getElementById("promoVideo");
+    const playPromoVideo = document.getElementById("playPromoVideo");
+    const promoVideoStatus = document.getElementById("promoVideoStatus");
+
+    if (promoVideo && playPromoVideo) {
+      playPromoVideo.addEventListener("click", async () => {
+        try {
+          promoVideo.muted = false;
+          await promoVideo.play();
+          if (promoVideoStatus) {
+            promoVideoStatus.textContent = "Video promosi sedang diputar.";
+          }
+        } catch (error) {
+          try {
+            promoVideo.muted = true;
+            await promoVideo.play();
+            if (promoVideoStatus) {
+              promoVideoStatus.textContent = "Video diputar dalam mode mute. Aktifkan suara melalui kontrol video.";
+            }
+          } catch (secondError) {
+            if (promoVideoStatus) {
+              promoVideoStatus.textContent = "Video belum bisa diputar otomatis. Silakan klik Buka Video.";
+            }
+          }
+        }
+      });
+
+      promoVideo.addEventListener("error", () => {
+        if (promoVideoStatus) {
+          promoVideoStatus.textContent = "Video belum terbaca. Pastikan file video promosi sudah di-upload ke GitHub dalam folder yang sama dengan index.html.";
         }
       });
     }
