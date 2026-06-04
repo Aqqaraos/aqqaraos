@@ -1489,25 +1489,6 @@
     }
 
   
-    .promo-video-actions {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      padding: 16px 0 2px;
-    }
-
-    .promo-video-status {
-      text-align: center;
-      color: rgba(255,255,255,.84);
-      font-size: 13px;
-      font-weight: 750;
-      line-height: 1.55;
-      margin-top: 8px;
-    }
-
-  
     .video-slider {
       display: grid;
       gap: 18px;
@@ -1516,17 +1497,18 @@
     .video-tabs {
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .video-tab {
-      border: 1px solid rgba(255,255,255,.22);
+      border: 1px solid rgba(255,255,255,.24);
       background: rgba(255,255,255,.12);
-      color: rgba(255,255,255,.88);
+      color: rgba(255,255,255,.92);
       border-radius: 999px;
-      padding: 13px 18px;
+      padding: 13px 20px;
       font-weight: 950;
       cursor: pointer;
       transition: .25s ease;
@@ -1542,7 +1524,7 @@
 
     .video-slide {
       display: none;
-      animation: fadeVideo .35s ease;
+      animation: fadeVideo .28s ease;
     }
 
     .video-slide.active {
@@ -1565,13 +1547,13 @@
     }
 
     .video-slide-title h3 {
+      color: white;
       font-size: clamp(22px, 2.4vw, 34px);
       line-height: 1.15;
-      color: white;
     }
 
     .video-slide-title span {
-      color: rgba(255,255,255,.80);
+      color: rgba(255,255,255,.82);
       font-size: 14px;
       font-weight: 750;
     }
@@ -1588,7 +1570,7 @@
 
     .video-file-note {
       text-align: center;
-      color: rgba(255,255,255,.78);
+      color: rgba(255,255,255,.82);
       font-size: 13px;
       font-weight: 720;
       line-height: 1.55;
@@ -1845,22 +1827,11 @@
           <div class="promo-full-video">
             <div class="video-slider">
               <div class="video-tabs" role="tablist" aria-label="Pilihan video AQQARAOS">
-                <button type="button" class="video-tab active" data-video-slide="0">Video Background</button>
-                <button type="button" class="video-tab" data-video-slide="1">Video Promosi</button>
+                <button type="button" class="video-tab active" data-video-slide="promo">Video Promosi</button>
+                <button type="button" class="video-tab" data-video-slide="background">Video Background</button>
               </div>
 
-              <article class="video-slide active" data-video-panel="0">
-                <div class="video-slide-title">
-                  <h3>Video Background AQQARAOS</h3>
-                  <span>File: bg-aqqaraos-layanan.mp4</span>
-                </div>
-                <video id="bgPreviewVideo" controls playsinline preload="metadata" poster="./jus-rimpang.png">
-                  <source src="./bg-aqqaraos-layanan.mp4" type="video/mp4">
-                  Browser Anda tidak mendukung pemutar video.
-                </video>
-              </article>
-
-              <article class="video-slide" data-video-panel="1">
+              <article class="video-slide active" data-video-panel="promo">
                 <div class="video-slide-title">
                   <h3>Video Promosi AQQARAOS</h3>
                   <span>File: video-promosi-aqqaraos-final.mp4</span>
@@ -1872,8 +1843,19 @@
                 </video>
               </article>
 
+              <article class="video-slide" data-video-panel="background">
+                <div class="video-slide-title">
+                  <h3>Video Background AQQARAOS</h3>
+                  <span>File: bg-aqqaraos-layanan.mp4</span>
+                </div>
+                <video id="backgroundPreviewVideo" controls playsinline preload="metadata" poster="./jus-rimpang.png">
+                  <source src="./bg-aqqaraos-layanan.mp4" type="video/mp4">
+                  Browser Anda tidak mendukung pemutar video.
+                </video>
+              </article>
+
               <p class="video-file-note">
-                Pilih tombol di atas untuk melihat video background atau video promosi. Pastikan seluruh file video sudah di-upload dalam folder GitHub yang sama dengan index.html.
+                Pilih Video Promosi atau Video Background. Pastikan semua file video sudah di-upload dalam folder GitHub yang sama dengan index.html.
               </p>
             </div>
           </div>
@@ -2021,39 +2003,6 @@
         window.open(whatsappUrl, "_blank");
       });
     }
-    const promoVideo = document.getElementById("promoVideo");
-    const playPromoVideo = document.getElementById("playPromoVideo");
-    const promoVideoStatus = document.getElementById("promoVideoStatus");
-
-    if (promoVideo && playPromoVideo) {
-      playPromoVideo.addEventListener("click", async () => {
-        try {
-          promoVideo.muted = false;
-          await promoVideo.play();
-          if (promoVideoStatus) {
-            promoVideoStatus.textContent = "Video promosi sedang diputar.";
-          }
-        } catch (error) {
-          try {
-            promoVideo.muted = true;
-            await promoVideo.play();
-            if (promoVideoStatus) {
-              promoVideoStatus.textContent = "Video diputar dalam mode mute. Aktifkan suara melalui kontrol video.";
-            }
-          } catch (secondError) {
-            if (promoVideoStatus) {
-              promoVideoStatus.textContent = "Video belum bisa diputar. Pastikan file promo-aqqaraos.mp4 sudah di-upload dan nama file sama persis.";
-            }
-          }
-        }
-      });
-
-      promoVideo.addEventListener("error", () => {
-        if (promoVideoStatus) {
-          promoVideoStatus.textContent = "File video promosi belum terbaca. Upload file promo-aqqaraos.mp4 ke GitHub pada folder yang sama dengan index.html.";
-        }
-      });
-    }
 
   
     const videoTabs = document.querySelectorAll(".video-tab");
@@ -2064,16 +2013,19 @@
         const target = tab.dataset.videoSlide;
 
         videoTabs.forEach((item) => item.classList.remove("active"));
+
         videoPanels.forEach((panel) => {
           panel.classList.remove("active");
-          const video = panel.querySelector("video");
-          if (video) {
-            video.pause();
+          const panelVideo = panel.querySelector("video");
+          if (panelVideo) {
+            panelVideo.pause();
+            panelVideo.currentTime = 0;
           }
         });
 
         tab.classList.add("active");
-        const activePanel = document.querySelector(`[data-video-panel="${target}"]`);
+
+        const activePanel = document.querySelector('[data-video-panel="' + target + '"]');
         if (activePanel) {
           activePanel.classList.add("active");
         }
