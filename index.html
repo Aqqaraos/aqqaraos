@@ -1489,54 +1489,9 @@
     }
 
   
-    .video-slider {
-      display: grid;
-      gap: 18px;
-    }
 
-    .video-tabs {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 6px;
-    }
-
-    .video-tab {
-      border: 1px solid rgba(255,255,255,.24);
-      background: rgba(255,255,255,.12);
-      color: rgba(255,255,255,.92);
-      border-radius: 999px;
-      padding: 13px 20px;
-      font-weight: 950;
-      cursor: pointer;
-      transition: .25s ease;
-      backdrop-filter: blur(10px);
-    }
-
-    .video-tab:hover,
-    .video-tab.active {
-      background: #ffffff;
-      color: var(--green-900);
-      transform: translateY(-2px);
-    }
-
-    .video-slide {
-      display: none;
-      animation: fadeVideo .28s ease;
-    }
-
-    .video-slide.active {
-      display: block;
-    }
-
-    @keyframes fadeVideo {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .video-slide-title {
+  
+    .single-promo-video-title {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -1546,13 +1501,13 @@
       color: white;
     }
 
-    .video-slide-title h3 {
+    .single-promo-video-title h3 {
       color: white;
       font-size: clamp(22px, 2.4vw, 34px);
       line-height: 1.15;
     }
 
-    .video-slide-title span {
+    .single-promo-video-title span {
       color: rgba(255,255,255,.82);
       font-size: 14px;
       font-weight: 750;
@@ -1568,7 +1523,7 @@
       background: #04130a;
     }
 
-    .video-file-note {
+    .promo-video-note {
       text-align: center;
       color: rgba(255,255,255,.82);
       font-size: 13px;
@@ -1581,10 +1536,6 @@
       .promo-full-video video {
         min-height: 320px;
         height: 320px;
-      }
-
-      .video-tab {
-        width: 100%;
       }
     }
 
@@ -1825,39 +1776,20 @@
       <div class="container">
         <div class="promo-full">
           <div class="promo-full-video">
-            <div class="video-slider">
-              <div class="video-tabs" role="tablist" aria-label="Pilihan video AQQARAOS">
-                <button type="button" class="video-tab active" data-video-slide="promo">Video Promosi</button>
-                <button type="button" class="video-tab" data-video-slide="background">Video Background</button>
-              </div>
-
-              <article class="video-slide active" data-video-panel="promo">
-                <div class="video-slide-title">
-                  <h3>Video Promosi AQQARAOS</h3>
-                  <span>File: video-promosi-aqqaraos-final.mp4</span>
-                </div>
-                <video id="promoPreviewVideo" controls playsinline preload="metadata" poster="./lemon-madu.png">
-                  <source src="./video-promosi-aqqaraos.webm" type="video/webm">
-                  <source src="./video-promosi-aqqaraos-final.mp4" type="video/mp4">
-                  Browser Anda tidak mendukung pemutar video.
-                </video>
-              </article>
-
-              <article class="video-slide" data-video-panel="background">
-                <div class="video-slide-title">
-                  <h3>Video Background AQQARAOS</h3>
-                  <span>File: bg-aqqaraos-layanan.mp4</span>
-                </div>
-                <video id="backgroundPreviewVideo" controls playsinline preload="metadata" poster="./jus-rimpang.png">
-                  <source src="./bg-aqqaraos-layanan.mp4" type="video/mp4">
-                  Browser Anda tidak mendukung pemutar video.
-                </video>
-              </article>
-
-              <p class="video-file-note">
-                Pilih Video Promosi atau Video Background. Pastikan semua file video sudah di-upload dalam folder GitHub yang sama dengan index.html.
-              </p>
+            <div class="single-promo-video-title">
+              <h3>Video Promosi AQQARAOS</h3>
+              <span>Jus Rimpang • Lemon Grass • Lemon Madu</span>
             </div>
+
+            <video id="promoPreviewVideo" controls playsinline preload="metadata" poster="./lemon-madu.png">
+              <source src="./video-promosi-aqqaraos.webm" type="video/webm">
+              <source src="./video-promosi-aqqaraos-final.mp4" type="video/mp4">
+              Browser Anda tidak mendukung pemutar video.
+            </video>
+
+            <p class="promo-video-note">
+              Klik tombol play pada video untuk melihat cuplikan promosi AQQARAOS.
+            </p>
           </div>
           <div class="promo-order-bar">
             <div><strong>Order AQQARAOS Sekarang</strong><span>Jus Rimpang • Lemon Grass • Lemon Madu — siap menemani kesegaran Anda setiap hari.</span></div>
@@ -2003,27 +1935,7 @@
         window.open(whatsappUrl, "_blank");
       });
     }
-
-  
-    const videoTabs = document.querySelectorAll(".video-tab");
-    const videoPanels = document.querySelectorAll(".video-slide");
-
-    videoTabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        const target = tab.dataset.videoSlide;
-
-        videoTabs.forEach((item) => item.classList.remove("active"));
-
-        videoPanels.forEach((panel) => {
-          panel.classList.remove("active");
-          const panelVideo = panel.querySelector("video");
-          if (panelVideo) {
-            panelVideo.pause();
-            panelVideo.currentTime = 0;
-          }
-        });
-
-        tab.classList.add("active");
+tab.classList.add("active");
 
         const activePanel = document.querySelector('[data-video-panel="' + target + '"]');
         if (activePanel) {
