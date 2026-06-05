@@ -1718,6 +1718,205 @@
       }
     }
 
+  
+    /* FINAL RESPONSIVE FIX */
+    header {
+      overflow: visible;
+    }
+
+    .navbar {
+      position: relative;
+      gap: 16px;
+    }
+
+    nav ul {
+      gap: 18px;
+    }
+
+    nav a {
+      font-size: 13.5px;
+    }
+
+    .nav-actions {
+      flex: 0 0 auto;
+      max-width: 250px;
+    }
+
+    .nav-actions .btn {
+      max-width: 100%;
+      padding: 14px 18px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .mobile-contact-link {
+      display: none;
+    }
+
+    .video-next-btn {
+      width: auto;
+      min-width: 96px;
+      height: 48px;
+      border-radius: 999px;
+      right: 18px;
+      top: 18px;
+      transform: none;
+      font-size: 16px;
+      padding: 0 18px;
+    }
+
+    .video-next-btn:hover {
+      transform: scale(1.04);
+    }
+
+    .video-next-secondary {
+      display: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 15px 24px;
+      background: #ffffff;
+      color: var(--green-900);
+      font-size: 16px;
+      font-weight: 950;
+      cursor: pointer;
+      box-shadow: 0 14px 34px rgba(0,0,0,.18);
+    }
+
+    .video-page video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      height: auto;
+      min-height: 0;
+      max-height: 76vh;
+      object-fit: cover;
+      background: #000;
+    }
+
+    @media (max-width: 1220px) {
+      .navbar {
+        min-height: 78px;
+      }
+
+      .menu-toggle {
+        display: grid !important;
+        place-items: center;
+        flex: 0 0 44px;
+      }
+
+      .nav-actions {
+        display: none;
+      }
+
+      nav {
+        position: absolute;
+        top: 78px;
+        left: 0;
+        right: 0;
+        z-index: 1005;
+        display: none;
+        padding: 18px 20px 22px;
+        background: rgba(255,255,255,.98);
+        border: 1px solid var(--line);
+        border-radius: 0 0 24px 24px;
+        box-shadow: 0 22px 46px rgba(7,59,34,.14);
+      }
+
+      nav.active {
+        display: block !important;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      nav li {
+        width: 100%;
+      }
+
+      nav a {
+        display: block;
+        width: 100%;
+        padding: 14px 6px;
+        font-size: 16px;
+        border-bottom: 1px solid rgba(229,237,223,.78);
+      }
+
+      nav a::after {
+        display: none;
+      }
+
+      .mobile-contact-link {
+        display: block;
+      }
+
+      .mobile-contact-link a {
+        margin-top: 10px;
+        text-align: center;
+        color: #ffffff;
+        background: linear-gradient(135deg, var(--green-700), var(--green-900));
+        border-radius: 999px;
+        border-bottom: 0;
+        font-weight: 950;
+      }
+    }
+
+    @media (min-width: 1221px) {
+      nav {
+        display: block !important;
+      }
+
+      .menu-toggle {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .video-next-btn {
+        display: none;
+      }
+
+      .video-next-secondary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 14px;
+      }
+
+      .video-page video {
+        max-height: none;
+        min-height: 0;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .video-counter {
+        left: 14px;
+        bottom: 14px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .navbar {
+        min-height: 72px;
+      }
+
+      nav {
+        top: 72px;
+      }
+
+      .brand-text strong {
+        font-size: 16px;
+      }
+
+      .brand-text span {
+        font-size: 9px;
+        letter-spacing: .8px;
+      }
+    }
+
   </style>
 </head>
 
@@ -1754,6 +1953,7 @@
           <li><a href="#event">Campaign</a></li>
           <li><a href="#video">Video</a></li>
           <li><a href="#order-form">Order</a></li>
+          <li class="mobile-contact-link"><a href="https://wa.me/6287781136221?text=Hallo%2C%20Aqqa%20raos%2C%20apakah%20saya%20bisa%20mendapatkan%20informasi%20lebih%20lanjut%20terkait%20produk%20anda%3F" target="_blank" rel="noopener">Kontak Layanan</a></li>
         </ul>
       </nav>
 
@@ -1973,9 +2173,10 @@
                 </video>
               </article>
 
-              <button type="button" class="video-next-btn" id="videoNextBtn" aria-label="Video berikutnya">›</button>
+              <button type="button" class="video-next-btn video-next-trigger" id="videoNextBtn" aria-label="Video berikutnya">Next</button>
               <div class="video-counter" id="videoCounter">1 / 2</div>
             </div>
+            <button type="button" class="video-next-secondary video-next-trigger" aria-label="Video berikutnya">Next</button>
           </div>
 
           <div class="promo-order-bar">
@@ -2131,9 +2332,8 @@ tab.classList.add("active");
       });
     });
 
-  
     const videoPages = document.querySelectorAll(".video-page");
-    const videoNextBtn = document.getElementById("videoNextBtn");
+    const videoNextTriggers = document.querySelectorAll(".video-next-trigger");
     const videoCounter = document.getElementById("videoCounter");
     let activeVideoPage = 0;
 
@@ -2153,11 +2353,14 @@ tab.classList.add("active");
       }
     }
 
-    if (videoNextBtn && videoPages.length > 0) {
-      videoNextBtn.addEventListener("click", () => {
+    videoNextTriggers.forEach((button) => {
+      button.addEventListener("click", () => {
         activeVideoPage = (activeVideoPage + 1) % videoPages.length;
         showVideoPage(activeVideoPage);
       });
+    });
+
+);
     }
 
   </script>
