@@ -1917,6 +1917,69 @@
       }
     }
 
+  
+    .video-carousel-stage {
+      isolation: isolate;
+    }
+
+    .video-next-btn,
+    .video-next-secondary {
+      pointer-events: auto;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .video-next-btn {
+      z-index: 20;
+    }
+
+    @media (max-width: 768px) {
+      .video-next-secondary {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+  
+    /* FINAL HAMBURGER CLICK FIX */
+    .menu-toggle {
+      position: relative;
+      z-index: 3000;
+      pointer-events: auto;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    header {
+      position: sticky;
+      z-index: 2500;
+    }
+
+    .navbar {
+      position: relative;
+      z-index: 2600;
+    }
+
+    nav {
+      z-index: 2700;
+    }
+
+    @media (max-width: 1220px) {
+      .menu-toggle {
+        display: grid !important;
+        place-items: center;
+      }
+
+      nav {
+        pointer-events: auto;
+      }
+
+      nav.active {
+        display: block !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -1941,7 +2004,7 @@
         <div class="brand-text"><strong>AQQARAOS</strong><span>PREMIUM HERBAL DRINK</span></div>
       </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">☰</button>
+      <button type="button" class="menu-toggle" id="menuToggle" aria-label="Buka menu" onclick="toggleAqqaMenu(event)">☰</button>
 
       <nav id="navMenu">
         <ul>
@@ -2279,90 +2342,138 @@
   </footer>
 
   <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const navMenu = document.getElementById("navMenu");
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuToggle = document.getElementById("menuToggle");
+      const navMenu = document.getElementById("navMenu");
 
-    menuToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("active");
-      menuToggle.textContent = navMenu.classList.contains("active") ? "×" : "☰";
-    });
-
-    document.querySelectorAll("nav a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
-        menuToggle.textContent = "☰";
-      });
-    });
-  
-    const orderForm = document.getElementById("aqqaraosOrderForm");
-
-    if (orderForm) {
-      orderForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        const nama = document.getElementById("nama").value.trim();
-        const handphone = document.getElementById("handphone").value.trim();
-        const referensi = document.getElementById("referensi").value.trim();
-
-        if (!nama || !handphone || !referensi) {
-          alert("Mohon lengkapi Nama, Nomor Handphone, dan Info referensi terlebih dahulu.");
-          return;
+      window.toggleAqqaMenu = function(event) {
+        if (event) {
+          event.preventDefault();
+          event.stopPropagation();
         }
 
-        const message = [
-          "Hallo Aqqa raos, saya ingin mendapatkan informasi/order produk.",
-          "",
-          "Nama : " + nama,
-          "Nomor Handphone : " + handphone,
-          "Info referensi : " + referensi,
-          "",
-          "Mohon dapat dihubungi lebih lanjut. Terima kasih."
-        ].join("\n");
+        if (!menuToggle || !navMenu) return;
 
-        const whatsappUrl = "https://wa.me/6287781136221?text=" + encodeURIComponent(message);
-        window.open(whatsappUrl, "_blank");
-      });
-    }
-tab.classList.add("active");
+        const isOpen = navMenu.classList.toggle("active");
+        menuToggle.textContent = isOpen ? "×" : "☰";
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      };
 
-        const activePanel = document.querySelector('[data-video-panel="' + target + '"]');
-        if (activePanel) {
-          activePanel.classList.add("active");
-        }
-      });
-    });
+      if (menuToggle && navMenu) {
+        menuToggle.setAttribute("aria-expanded", "false");
 
-    const videoPages = document.querySelectorAll(".video-page");
-    const videoNextTriggers = document.querySelectorAll(".video-next-trigger");
-    const videoCounter = document.getElementById("videoCounter");
-    let activeVideoPage = 0;
+        menuToggle.addEventListener("click", (event) => {
+          window.toggleAqqaMenu(event);
+        });
 
-    function showVideoPage(index) {
-      videoPages.forEach((page, pageIndex) => {
-        const video = page.querySelector("video");
-        page.classList.toggle("active", pageIndex === index);
+        document.querySelectorAll("nav a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navMenu.classList.remove("active");
+            menuToggle.textContent = "☰";
+            menuToggle.setAttribute("aria-expanded", "false");
+          });
+        });
 
-        if (video && pageIndex !== index) {
-          video.pause();
-          video.currentTime = 0;
-        }
-      });
-
-      if (videoCounter) {
-        videoCounter.textContent = (index + 1) + " / " + videoPages.length;
+        document.addEventListener("click", (event) => {
+          const clickedInsideHeader = event.target.closest("header");
+          if (!clickedInsideHeader && navMenu.classList.contains("active")) {
+            navMenu.classList.remove("active");
+            menuToggle.textContent = "☰";
+            menuToggle.setAttribute("aria-expanded", "false");
+          }
+        });
       }
-    }
 
-    videoNextTriggers.forEach((button) => {
-      button.addEventListener("click", () => {
-        activeVideoPage = (activeVideoPage + 1) % videoPages.length;
-        showVideoPage(activeVideoPage);
+      const orderForm = document.getElementById("aqqaraosOrderForm");
+
+      if (orderForm) {
+        orderForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const nama = document.getElementById("nama").value.trim();
+          const handphone = document.getElementById("handphone").value.trim();
+          const referensi = document.getElementById("referensi").value.trim();
+
+          if (!nama || !handphone || !referensi) {
+            alert("Mohon lengkapi Nama, Nomor Handphone, dan Info referensi terlebih dahulu.");
+            return;
+          }
+
+          const message = [
+            "Hallo Aqqa raos, saya ingin mendapatkan informasi/order produk.",
+            "",
+            "Nama : " + nama,
+            "Nomor Handphone : " + handphone,
+            "Info referensi : " + referensi,
+            "",
+            "Mohon dapat dihubungi lebih lanjut. Terima kasih."
+          ].join("
+");
+
+          const whatsappUrl = "https://wa.me/6287781136221?text=" + encodeURIComponent(message);
+          window.open(whatsappUrl, "_blank");
+        });
+      }
+
+      window.activeAqqaVideoPage = 0;
+      window.showAqqaVideoPage = function(index) {
+        const videoPages = document.querySelectorAll(".video-page");
+        const videoCounter = document.getElementById("videoCounter");
+
+        if (!videoPages.length) return;
+
+        videoPages.forEach((page, pageIndex) => {
+          const video = page.querySelector("video");
+          const isActive = pageIndex === index;
+
+          page.classList.toggle("active", isActive);
+
+          if (video && !isActive) {
+            video.pause();
+            video.currentTime = 0;
+          }
+        });
+
+        if (videoCounter) {
+          videoCounter.textContent = (index + 1) + " / " + videoPages.length;
+        }
+      };
+
+      window.nextAqqaVideo = function() {
+        const videoPages = document.querySelectorAll(".video-page");
+
+        if (!videoPages.length) return;
+
+        window.activeAqqaVideoPage = (window.activeAqqaVideoPage + 1) % videoPages.length;
+        window.showAqqaVideoPage(window.activeAqqaVideoPage);
+      };
+
+      document.querySelectorAll(".video-next-trigger").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          window.nextAqqaVideo();
+        });
       });
+
+      window.showAqqaVideoPage(0);
     });
 
-);
-    }
+    window.toggleAqqaMenu = window.toggleAqqaMenu || function(event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
 
+      const menuToggle = document.getElementById("menuToggle");
+      const navMenu = document.getElementById("navMenu");
+
+      if (!menuToggle || !navMenu) return;
+
+      const isOpen = navMenu.classList.toggle("active");
+      menuToggle.textContent = isOpen ? "×" : "☰";
+      menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    };
   </script>
 </body>
 </html>
