@@ -2209,6 +2209,149 @@
       .video-carousel-stage, .video-page video { border-radius: 22px; }
     }
 
+  
+    /* CSS-ONLY VIDEO NEXT FIX */
+    .video-css-carousel {
+      display: grid;
+      gap: 16px;
+    }
+
+    .video-radio {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      width: 1px;
+      height: 1px;
+    }
+
+    .video-css-stage {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 28px;
+      background: #000;
+      box-shadow: 0 24px 60px rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.18);
+      isolation: isolate;
+    }
+
+    .video-css-page {
+      display: none;
+      width: 100%;
+      animation: videoFadeSimple .28s ease;
+    }
+
+    #aqqaVideoSlide1:checked ~ .video-css-stage .video-css-page-1,
+    #aqqaVideoSlide2:checked ~ .video-css-stage .video-css-page-2 {
+      display: block;
+    }
+
+    .video-css-page video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: 76vh;
+      object-fit: cover;
+      background: #000;
+      border-radius: 28px;
+    }
+
+    .video-css-control {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding-top: 14px;
+      pointer-events: auto !important;
+    }
+
+    .video-css-counter {
+      min-width: 72px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.48);
+      color: white;
+      font-size: 14px;
+      font-weight: 950;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .counter-1,
+    .counter-2,
+    .next-to-1,
+    .next-to-2 {
+      display: none;
+    }
+
+    #aqqaVideoSlide1:checked ~ .video-css-control .counter-1,
+    #aqqaVideoSlide1:checked ~ .video-css-control .next-to-2,
+    #aqqaVideoSlide2:checked ~ .video-css-control .counter-2,
+    #aqqaVideoSlide2:checked ~ .video-css-control .next-to-1 {
+      display: inline-flex;
+    }
+
+    .video-css-next {
+      align-items: center;
+      justify-content: center;
+      min-width: 130px;
+      height: 52px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.34);
+      background: #ffffff;
+      color: var(--green-900);
+      font-size: 17px;
+      font-weight: 950;
+      padding: 0 28px;
+      cursor: pointer;
+      pointer-events: auto !important;
+      touch-action: manipulation !important;
+      -webkit-tap-highlight-color: transparent;
+      box-shadow: 0 16px 38px rgba(0,0,0,.20);
+      transition: .25s ease;
+      user-select: none;
+    }
+
+    .video-css-next:hover {
+      transform: translateY(-2px);
+    }
+
+    @keyframes videoFadeSimple {
+      from { opacity: 0; transform: scale(.992); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .video-css-page video {
+        max-height: none;
+        object-fit: contain;
+      }
+
+      .video-css-control {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .video-css-next {
+        width: 100%;
+      }
+
+      .video-css-counter {
+        width: fit-content;
+        justify-self: center;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .video-css-stage,
+      .video-css-page video {
+        border-radius: 22px;
+      }
+    }
+
   </style>
 </head>
 
@@ -2446,12 +2589,16 @@
     
     
     
+    
     <section class="section" id="video">
       <div class="container">
         <div class="promo-full">
-          <div class="video-carousel" aria-label="Video AQQARAOS">
-            <div class="video-carousel-stage">
-              <article class="video-page active" data-video-page="0">
+          <div class="video-css-carousel" aria-label="Video AQQARAOS">
+            <input type="radio" name="aqqaVideoSlide" id="aqqaVideoSlide1" class="video-radio" checked>
+            <input type="radio" name="aqqaVideoSlide" id="aqqaVideoSlide2" class="video-radio">
+
+            <div class="video-css-stage">
+              <article class="video-css-page video-css-page-1">
                 <video controls playsinline preload="metadata" poster="./lemon-madu.png">
                   <source src="./video-promosi-aqqaraos.webm" type="video/webm">
                   <source src="./video-promosi-aqqaraos-final.mp4" type="video/mp4">
@@ -2459,7 +2606,7 @@
                 </video>
               </article>
 
-              <article class="video-page" data-video-page="1">
+              <article class="video-css-page video-css-page-2">
                 <video controls playsinline preload="metadata" poster="./jus-rimpang.png">
                   <source src="./bg-aqqaraos-layanan.mp4" type="video/mp4">
                   Browser Anda tidak mendukung pemutar video.
@@ -2467,9 +2614,14 @@
               </article>
             </div>
 
-            <div class="video-control-row">
-              <div class="video-counter" id="videoCounter">1 / 2</div>
-              <button type="button" class="video-next-btn" id="videoNextBtn" aria-label="Video berikutnya">Next</button>
+            <div class="video-css-control">
+              <div class="video-css-counter">
+                <span class="counter-1">1 / 2</span>
+                <span class="counter-2">2 / 2</span>
+              </div>
+
+              <label for="aqqaVideoSlide2" class="video-css-next next-to-2">Next</label>
+              <label for="aqqaVideoSlide1" class="video-css-next next-to-1">Next</label>
             </div>
           </div>
 
@@ -2635,60 +2787,11 @@
             "Info referensi : " + referensi,
             "",
             "Mohon dapat dihubungi lebih lanjut. Terima kasih."
-          ].join("
-");
+          ].join("\n");
 
           window.open("https://wa.me/6287781136221?text=" + encodeURIComponent(message), "_blank");
         }, false);
       }
-
-      let activeVideoPage = 0;
-
-      function showVideoPage(index) {
-        const videoPages = document.querySelectorAll(".video-page");
-        const videoCounter = document.getElementById("videoCounter");
-
-        if (!videoPages.length) return;
-
-        videoPages.forEach(function (page, pageIndex) {
-          const video = page.querySelector("video");
-          const isActive = pageIndex === index;
-
-          page.classList.toggle("active", isActive);
-
-          if (video && !isActive) {
-            video.pause();
-            video.currentTime = 0;
-          }
-        });
-
-        if (videoCounter) {
-          videoCounter.textContent = (index + 1) + " / " + videoPages.length;
-        }
-      }
-
-      function nextVideo(event) {
-        if (event) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-
-        const videoPages = document.querySelectorAll(".video-page");
-        if (!videoPages.length) return;
-
-        activeVideoPage = (activeVideoPage + 1) % videoPages.length;
-        showVideoPage(activeVideoPage);
-      }
-
-      window.nextAqqaVideo = nextVideo;
-
-      const nextButton = document.getElementById("videoNextBtn");
-      if (nextButton) {
-        nextButton.addEventListener("click", nextVideo, false);
-        nextButton.addEventListener("touchend", nextVideo, false);
-      }
-
-      showVideoPage(0);
     });
   </script>
 </body>
